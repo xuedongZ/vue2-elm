@@ -4,7 +4,7 @@ import routes from './router/router'
 import store from './store/'
 import ajax from './config/ajax'
 import fetch from './config/fetch'
-import './style/common'
+import './style/common.less'
 import './config/rem'
 
 // ajax('GET', '/shopping/restaurants',{
