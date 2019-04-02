@@ -10,7 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    context:[ //代理路径
+    context: [ //代理路径
       '/shopping',
       '/v1',
       '/v2',
@@ -19,7 +19,6 @@ module.exports = {
     ],
     proxypath: 'https://mainsite-restapi.ele.me',
     proxyTable: {},
-    
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -29,7 +28,6 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
     /**
      * Source Maps
      */
