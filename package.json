@@ -2,7 +2,7 @@
   "name": "vue2-elm",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "xuedong <xuedong6624@gmail.com>",
+  "author": "xuedongZ<xuedong6624@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
