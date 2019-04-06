@@ -1,7 +1,7 @@
 <template>
   <div>
-    <head-top signin-up="home">
-      <router-link to="/home" slot="logo" class="head_logo">ele.me</router-link>
+    <head-top signin-up='home'>
+      <router-link to='/home' slot='logo' class="head_logo">ele.me</router-link>
     </head-top>
     <nav class="city_nav">
       <div class="city_tip">
@@ -14,31 +14,24 @@
       </router-link>
     </nav>
     <div id="hot_city_container">
-      <h4 class="ciyt_title">热门城市</h4>
+      <h4 class="city_title">热门城市</h4>
       <ul class="citylistul clear">
-        <router-link
-          tag="li"
-          v-for="item in hotcity"
-          :to="'/city/' + item.id"
-          :key="item.id"
-        >{{item.name}}</router-link>
+        <router-link tag="li" v-for="item in hotcity" :to="'/city/' + item.id" :key="item.id">
+          {{item.name}}
+        </router-link>
       </ul>
     </div>
     <div class="group_city_container">
       <ul class="letter_classify">
-        <li v-for="(value, key, index) in sortgroupciyt" :key="key" class="letter_classify_li">
-          <h4 class="ciyt_title">
-            {{key}}
+        <li v-for="(value, key, index) in sortgroupcity" :key="key" class="letter_classify_li">
+          <h4 class="city_title">{{key}}
             <span v-if="index == 0">（按字母排序）</span>
           </h4>
           <ul class="groupcity_name_container citylistul clear">
-            <router-link
-              tag="li"
-              v-for="item in value"
-              :to="'/city/' + item.id"
-              :key="item.id"
-              class="ellipsis"
-            >{{item.name}}</router-link>
+            <router-link tag="li" v-for="item in value" :to="'/city/' + item.id" :key="item.id" class="ellipsis">
+              {{item.name}}
+
+            </router-link>
           </ul>
         </li>
       </ul>
@@ -47,55 +40,59 @@
 </template>
 
 <script>
-import headtop from "../../components/header/head";
-import { cityGuess, hotcity, groupcity } from "../../service/getData";
+import headTop from '../../components/header/head'
+import { cityGuess, hotcity, groupcity } from '../../service/getData'
 
 export default {
   data() {
     return {
-      guessCity: "",
-      guessCityid: "",
+      guessCity: '',
+      guessCityid: '',
       hotcity: [],
-      groupcity: {}
-    };
+      groupcity: {},
+    }
   },
+
   created() {
     cityGuess().then(res => {
       this.guessCity = res.name;
       this.guessCityid = res.id;
-    });
+    })
 
     hotcity().then(res => {
       this.hotcity = res;
-    });
+    })
 
     groupcity().then(res => {
       this.groupcity = res;
-    });
+    })
   },
 
   components: {
-    headtop
+    headTop
   },
+
   computed: {
-    sortgroupciyt() {
+    sortgroupcity() {
       let sortobj = {};
       for (let i = 65; i <= 90; i++) {
         if (this.groupcity[String.fromCharCode(i)]) {
-          sortobj[String.fromCharCode(i)] = this.groupcity[
-            String.fromCharCode(i)
-          ];
+          sortobj[String.fromCharCode(i)] = this.groupcity[String.fromCharCode(i)];
         }
       }
-      return sortobj;
+      return sortobj
     }
   },
-  methods: {}
-};
+
+  methods: {
+
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/mixin.scss";
+@import '../../style/mixin';
 .head_logo {
   left: 0.4rem;
   font-weight: 400;
@@ -144,7 +141,7 @@ export default {
 .citylistul {
   li {
     float: left;
-    ïtext-align: center;
+    text-align: center;
     color: $blue;
     border-bottom: 0.025rem solid $bordercolor;
     border-right: 0.025rem solid $bordercolor;
@@ -155,17 +152,18 @@ export default {
     border-right: none;
   }
 }
-.ciyt_title {
+.city_title {
   color: #666;
   font-weight: 400;
   text-indent: 0.45rem;
   border-top: 2px solid $bordercolor;
   border-bottom: 1px solid $bordercolor;
-  @include font(0.55rem, 1.45rem, "Helvetica Neue");
+  @include font(0.55rem, 1.45rem, 'Helvetica Neue');
   span {
     @include sizecolor(0.475rem, #999);
   }
 }
+
 .letter_classify_li {
   margin-bottom: 0.4rem;
   background-color: #fff;
