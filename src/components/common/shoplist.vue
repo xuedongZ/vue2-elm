@@ -1,50 +1,268 @@
 <template>
-  <div id="app">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;visibility:hidden">
-      <defs>
-        <symbol viewBox="0 0 60 60" id="eleme">
-          <path fill="#3CABFF" fill-rule="evenodd" d="M0 9.375A9.374 9.374 0 0 1 9.375 0h41.25A9.374 9.374 0 0 1 60 9.375v41.25A9.374 9.374 0 0 1 50.625 60H9.375A9.374 9.374 0 0 1 0 50.625V9.375zm35.94 30.204c-5.601 3.147-12.645 1.256-15.834-4.217-3.206-5.501-1.303-12.537 4.25-15.713 4.7-2.689 10.51-1.749 14.127 1.941L27.526 27.89a2.81 2.81 0 0 0-1.037 3.854 2.862 2.862 0 0 0 3.887 1.035l15.988-9.166a17.238 17.238 0 0 0-1.222-2.571c-4.777-8.198-15.358-11.007-23.632-6.275-8.275 4.734-11.11 15.217-6.332 23.415 4.77 8.184 15.322 10.997 23.59 6.297.877-.5 1.654-1.037 2.376-1.623l-1.31-2.248a2.868 2.868 0 0 0-3.893-1.028zm10.824-7.39l-1.418-2.425-4.911 2.798 2.835 4.846 2.454-1.399h.002a2.779 2.779 0 0 0 1.038-3.82z">
-          </path>
-        </symbol>
-        <symbol viewBox="0 0 28 33" id="user">
-          <path fill-rule="evenodd" d="M20.798 19.289c2.636-2.002 4.215-5.091 4.215-8.437 0-5.886-4.845-10.647-10.808-10.647S3.397 4.966 3.397 10.852c0 3.345 1.578 6.433 4.212 8.435l.264-2.678C4.358 18.32 1.591 21.403.168 25.187l1.478.556v-1.579c-1.485.73-1.485.73-1.501 1.079-.054.188-.054.188-.069.278a2.58 2.58 0 0 0-.026.229 9.112 9.112 0 0 0-.019.4c-.008.265-.014.617-.018 1.039-.005.511-.006 1.037-.006 1.451v.027c-.004 1.732 1.41 3.129 3.154 3.129h22.082a3.18 3.18 0 0 0 3.172-3.153l.011-1.305.008-.897.003-.296.001-.083v-.022-.006-.001l.002-.278-.093-.262c-1.385-3.918-4.203-7.122-7.812-8.88l.263 2.678zm-1.911-2.516l-2.045 1.553 2.309 1.125c2.856 1.392 5.106 3.949 6.218 7.093l-.09-.54V26.033l-.001.083-.003.296-.008.897-.011 1.305c0 .01-.011.021-.013.021H3.161c-.007 0 .005.011.005.032v-.031c0-.404.001-.92.006-1.418.004-.4.01-.732.017-.969.004-.121.008-.212.012-.262l-.006.043c-.009.06-.009.06-.058.229-.01.336-.01.336-1.49 1.063H2.74l.385-1.024c1.141-3.035 3.35-5.495 6.131-6.849l2.309-1.124-2.045-1.554c-1.859-1.412-2.964-3.576-2.964-5.92 0-4.129 3.418-7.488 7.649-7.488s7.649 3.359 7.649 7.488c0 2.344-1.106 4.509-2.966 5.921z" class="path1">
-          </path>
-        </symbol>
-        <symbol viewBox="0 0 32 31" id="shop">
-          <g fill-rule="evenodd">
-            <path d="M28.232 1.822C27.905.728 26.97.152 25.759.152H5.588c-1.252 0-1.867.411-2.397 1.415l-.101.243-.443 1.434-.975 3.154-.002.007C.837 9.101.294 10.854.26 10.956l-.059.259c-.231 1.787.337 3.349 1.59 4.448 1.159 1.017 2.545 1.384 3.865 1.384.07 0 .07 0 .132-.002-.01.001-.01.001.061.002 1.32 0 2.706-.367 3.865-1.384a4.96 4.96 0 0 0 .413-.407l-1.043-.946-1.056.931c1.033 1.171 2.51 1.792 4.21 1.801.04.002.088.004.173.004 1.32 0 2.706-.367 3.865-1.384.148-.13.287-.267.418-.411l-1.044-.944-1.057.93c1.033 1.174 2.511 1.796 4.213 1.806.04.002.088.004.173.004 1.32 0 2.706-.367 3.865-1.384.15-.131.29-.27.422-.416l-1.046-.943-1.058.929c1.033 1.177 2.513 1.801 4.218 1.811.04.002.088.004.173.004 1.32 0 2.706-.367 3.865-1.384 1.206-1.058 1.858-2.812 1.676-4.426-.069-.61-.535-2.207-1.354-4.785l-.109-.342a327.554 327.554 0 0 0-1.295-3.966l-.122-.366.014.043h.004zm-2.684.85l.12.361.318.962c.329.999.658 2.011.965 2.973l.108.338c.719 2.262 1.203 3.92 1.24 4.249.08.711-.233 1.553-.735 1.993-.553.485-1.308.685-2.008.685l-.098-.002c-.987-.007-1.695-.306-2.177-.854l-1.044-1.189-1.06 1.175a2.192 2.192 0 0 1-.188.185c-.553.485-1.308.685-2.008.685l-.098-.002c-.985-.007-1.693-.305-2.174-.852l-1.043-1.185-1.059 1.171c-.058.064-.12.125-.186.183-.553.485-1.308.685-2.008.685l-.098-.002c-.984-.007-1.692-.304-2.173-.85L9.101 12.2l-1.058 1.166a2.248 2.248 0 0 1-.184.181c-.553.485-1.307.685-2.008.685l-.061-.001-.131.001c-.701 0-1.455-.2-2.008-.685-.538-.472-.767-1.102-.654-1.971l-1.396-.18 1.338.44c.043-.13.552-1.775 1.425-4.599l.002-.007.975-3.155.443-1.434-1.345-.415 1.245.658c.054-.102.042-.085-.083-.001-.122.082-.143.086-.009.086H25.763c.053 0-.164-.133-.225-.339l.014.043-.004-.001zM5.528 19.48c.778 0 1.408.63 1.408 1.408v7.424a1.408 1.408 0 1 1-2.816 0v-7.424c0-.778.63-1.408 1.408-1.408z">
-            </path>
-            <path d="M.28 29.72c0-.707.58-1.28 1.277-1.28h28.155a1.28 1.28 0 0 1 .007 2.56H1.561A1.278 1.278 0 0 1 .28 29.72z">
-            </path>
-            <path d="M26.008 19.48c.778 0 1.408.63 1.408 1.408v7.424a1.408 1.408 0 1 1-2.816 0v-7.424c0-.778.63-1.408 1.408-1.408z">
-            </path>
-          </g>
-        </symbol>
-        <symbol viewBox="0 0 28 33" id="location">
-          <g fill-rule="evenodd">
-            <path d="M20.809 21.6L12.9 29.509h1.616l-7.992-7.992a13.003 13.003 0 0 1-.506-.478c-4.25-4.25-4.25-11.14 0-15.389s11.14-4.25 15.389 0c4.25 4.25 4.25 11.14 0 15.389a10.81 10.81 0 0 1-.543.508l-.056.052zm1.56 1.669c.225-.196.443-.401.656-.613 5.142-5.142 5.142-13.48 0-18.622s-13.48-5.142-18.622 0c-5.142 5.142-5.142 13.48 0 18.622.18.18.364.354.553.522l8.753 8.755 8.661-8.664z" class="path1">
-            </path>
-            <path d="M9.428 16.739a6.063 6.063 0 1 0 8.573-8.575 6.063 6.063 0 0 0-8.573 8.575zm1.616-1.616a3.776 3.776 0 1 1 5.34-5.341 3.776 3.776 0 0 1-5.34 5.341z" class="path2">
-            </path>
-          </g>
-        </symbol>
-        <symbol id="star" viewBox="0 0 32 32">
-          <path class="path1" d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z">
-          </path>
-        </symbol>
-      </defs>
-    </svg>
-    <router-view></router-view>
+  <div>
+    <a id="top"></a>
+    <ul v-load-more="loaderMore">
+      <router-link :to="{path: 'food', query:{}}" v-for="item in shopListArr" tag='li' :key="item.id" class="shop_li">
+        <section>
+          <img :src="imgBaseUrl + subImgUrl(item.image_path)" class="shop_img">
+        </section>
+        <hgroup class="shop_right">
+          <header class="shop_detail_header">
+            <h4 :class="item.is_premium? 'premium': ''" class="" class="shop_title ellipsis">{{item.name}}</h4>
+            <ul class="shop_detail_ul">
+              <li v-for="item in item.supports" key="item.id" class="supports">{{item.icon_name}}</li>
+            </ul>
+          </header>
+          <h5 class="rating_order_num">
+            <section class="rating_order_num_left">
+              <section class="rating_section">
+                <div class="rating_container">
+                  <span class="star_container">
+                    <svg class="grey_fill" v-for="num in 5" key="num">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
+                    </svg>
+                  </span>
+                  <div :style="'width:' + item.rating*2/5 + 'rem'" class="star_overflow">
+                    <span class="star_container">
+                      <svg class="orange_fill" v-for="num in 5" key="num">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <span class="rating_num">{{item.rating}}</span>
+              </section>
+              <section class="order_section">
+                月售{{item.recent_order_num}}单
+              </section>
+            </section>
+            <section class="rating_order_num_right" v-if="item.delivery_mode">
+              <span class="delivery_style delivery_left">{{item.delivery_mode.text}}</span>
+              <span class="delivery_style delivery_right">准时达</span>
+            </section>
+          </h5>
+          <h5 class="fee_distance">
+            <section class="fee">
+              ¥{{item.float_minimum_order_amount}}起送
+              <span class="segmentation">/</span>
+              {{item.piecewise_agent_fee.tips}}
+            </section>
+            <section class="distance_time">
+              <span>{{item.distance > 1000? (item.distance/1000).toFixed(2) + 'km': item.distance + 'm'}}
+                <span class="segmentation">/</span>
+              </span>
+              <span class="order_time">{{item.order_lead_time}}分钟</span>
+            </section>
+          </h5>
+        </hgroup>
+      </router-link>
+    </ul>
+    <a class="return_top" @click="backTop" v-if="showBack">
+      <svg class="back_top_svg">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#backtop"></use>
+      </svg>
+    </a>
+    <footer class="loader_more" v-show="preventRepeatReuqest">正在加载更多商家...</footer>
   </div>
 </template>
 
 <script>
 
+import { mapState } from 'vuex'
+import { imgBaseUrl } from '../../config/env'
+import { msiteShopList } from '../../service/getData'
+import * as Tool from '../../config/mUtils'
+
 export default {
+  data() {
+    return {
+      offset: 0, // 批次加载店铺列表，每次加载20个 limit = 20
+      shopListArr: [], // 店铺列表数据
+      imgBaseUrl, //图片域名地址
+      preventRepeatReuqest: false, //到达底部加载数据，防止重复加载
+      showBack: false, //显示返回顶部按钮
+    }
+  },
+  async mounted() {
+    //获取数据
+    this.shopListArr = await msiteShopList(this.latitude, this.longitude, this.offset);
+    Tool.showBack(status => {
+      this.showBack = status;
+    })
+  },
+  props: [],
+  components: {
 
+  },
+  computed: {
+    ...mapState([
+      'latitude', 'longitude'
+    ])
+  },
+  methods: {
+    //传递过来的图片地址需要处理后才能正常使用
+    subImgUrl(path) {
+      let suffix;
+      if (path.indexOf('jpeg') !== -1) {
+        suffix = '.jpeg'
+      } else {
+        suffix = '.png'
+      }
+      let url = '/' + path.substr(0, 1) + '/' + path.substr(1, 2) + '/' + path.substr(3) + suffix;
+      return url
+    },
+    //到达底部加载更多数据
+    async loaderMore() {
+      //防止重复请求
+      if (this.preventRepeatReuqest) {
+        return
+      }
+      this.preventRepeatReuqest = true;
+      this.offset += 20;
+      let res = await msiteShopList(this.latitude, this.longitude, this.offset);
+      this.shopListArr = this.shopListArr.concat(res);
+
+      //当获取数据小于20，说明没有更多数据，不需要再次请求数据
+      if (res.length < 20) {
+        return
+      }
+      this.preventRepeatReuqest = false;
+    },
+    //返回顶部
+    backTop() {
+      window.scrollTo(0, 0);
+    }
+  }
 }
-
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+@import '../../style/mixin.scss';
+.shop_li {
+  display: flex;
+  border-bottom: 0.025rem solid #f1f1f1;
+  padding: 0.7rem 0.4rem;
+}
+.shop_img {
+  @include wh(2.7rem, 2.7rem);
+  display: block;
+  margin-right: 0.4rem;
+}
+.shop_right {
+  flex: auto;
+  .shop_detail_header {
+    @include fj;
+    align-items: center;
+    .shop_title {
+      width: 8.5rem;
+      color: #333;
+      @include font(0.65rem, 0.65rem, 'PingFangSC-Regular');
+      font-weight: 700;
+    }
+    .premium::before {
+      content: '品牌';
+      display: inline-block;
+      font-size: 0.5rem;
+      background-color: #ffd930;
+      padding: 0 0.1rem;
+      border-radius: 0.1rem;
+      margin-right: 0.2rem;
+      vertical-align: top;
+    }
+    .shop_detail_ul {
+      display: flex;
+      .supports {
+        @include sc(0.5rem, #999);
+        border: 0.025rem solid #f1f1f1;
+        padding: 0.04rem;
+        border-radius: 0.08rem;
+        margin-left: 0.05rem;
+      }
+    }
+  }
+  .rating_order_num {
+    @include fj(space-between);
+    height: 0.6rem;
+    margin-top: 0.52rem;
+    .rating_order_num_left {
+      @include fj(flex-start);
+      .rating_section {
+        display: flex;
+        .rating_container {
+          position: relative;
+          width: 2rem;
+          .star_overflow {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+          }
+          .star_container {
+            position: absolute;
+            display: flex;
+            width: 2rem;
+            height: 0.4rem;
+            top: -0.02rem;
+            .grey_fill {
+              fill: #d1d1d1;
+            }
+            .orange_fill {
+              fill: #ff9a0d;
+            }
+          }
+        }
+        .rating_num {
+          @include sc(0.4rem, #ff6000);
+          margin: 0 0.2rem;
+        }
+      }
+      .order_section {
+        @include sc(0.4rem, #666);
+      }
+    }
+    .rating_order_num_right {
+      display: flex;
+      .delivery_style {
+        font-size: 0.4rem;
+        padding: 0.04rem 0.08rem 0;
+        border-radius: 0.08rem;
+        margin-left: 0.08rem;
+      }
+      .delivery_left {
+        color: #fff;
+        background-color: $blue;
+        border: 0.025rem solid $blue;
+      }
+      .delivery_right {
+        color: $blue;
+        border: 0.025rem solid $blue;
+      }
+    }
+  }
+  .fee_distance {
+    margin-top: 0.52rem;
+    @include fj;
+    @include sc(0.5rem, #666);
+    .distance_time {
+      .order_time {
+        color: $blue;
+      }
+    }
+    .segmentation {
+      color: #ccc;
+    }
+  }
+}
+.loader_more {
+  @include font(0.6rem, 3);
+  text-align: center;
+  color: #999;
+}
+.return_top {
+  position: fixed;
+  bottom: 3rem;
+  right: 1rem;
+  .back_top_svg {
+    @include wh(2rem, 2rem);
+  }
+}
 </style>
