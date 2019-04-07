@@ -1,16 +1,16 @@
-## 前言
+# 前言
 
-vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以 react 为主，没有机会好好利用 vue2 去做一个完整的项目。虽然写了几个 demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么 web 端也只是因为经常用，熟悉它的布局。之前的饿了么官网是用 angular1 写的，最近才发现原来这段时间改成了 vue1，看来饿了么也入了 vue 的坑。
+vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以 react 为主，没有机会好好利用 vue2 去做一个完整的项目。虽然写了几个 demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么也只是因为经常用，熟悉它的布局。之前的饿了么官网是用 angular1 写的，最近才发现原来这段时间改成了 vue1，看来饿了么也入了 vue 的坑。
 
 首先遇到的问题当然是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
 
 **注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
 
-## 技术栈
+# 技术栈
 
-vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + http-proxy-middleware 反向代理
+vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
 
-## 目标功能
+# 目标功能
 
 - [x] 定位功能 -- 完成
 - [x] 选择城市 -- 完成
@@ -33,7 +33,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + http-proxy-
 
 说明：因为并不是 elm 官方，而且因为要开代理，必须在 pc 端打开，所以预计最多只能做到下单这一步，下单成功后可以在手机客户端查看并付款。
 
-## 项目布局
+# 项目布局
 
 ```
 |-- build                            // webpack配置文件
@@ -83,7 +83,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + http-proxy-
 |
 |   |-- style                        // 各种样式文件
 |       |-- common.scss              // 公共样式文件
-|       |-- mixin.scss               // 样式配置文件
+|       |-- mixin.scss               // 样式配置文件
 |
 |   |-- App.vue                      // 页面入口文件
 |
@@ -98,7 +98,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + http-proxy-
 |-- README.md                        // 说明
 ```
 
-## 项目运行
+# 项目运行
 
 ```
 克隆，或者直接下载
@@ -111,21 +111,26 @@ cd vue2-elm
 npm install
 ```
 
-### 编译环境
+## 编译环境
 
 ```
+
 开启本地服务器
 npm run dev
+
+访问 http://localhost:8088/
 ```
 
-访问 localhost:8080
-
-### 线上版本
+## 线上版本
 
 ```
 npm run build
 
 生成的elm文件夹放在服务器即可正常访问
-
-访问 http://localhost:8080/
 ```
+
+# 个人感悟
+
+ps:每次做完一个完整的项目总会试着去总结问题和心得，有些知识点似乎懂了，但是写出来的时候发现好多地方仍然没有理解，写出来能够加深印象，万一哪天忘了某些知识也可以回来看看，希望自己可以坚持写下去。
+
+## 对 vue 的理解
