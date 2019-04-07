@@ -8,13 +8,13 @@ vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以
 
 ## 技术栈
 
-vue2 + vue-rotuer2 + vuex2 + webpack + ES6 + fetch + sass + flex + http-proxy-middleware 反向代理
+vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + http-proxy-middleware 反向代理
 
 ## 目标功能
 
-- [x] 定位功能
-- [x] 选择城市
-- [x] 搜索地址
+- [x] 定位功能 -- 完成
+- [x] 选择城市 -- 完成
+- [x] 搜索地址 -- 完成
 - [ ] 展示所选地址附近商家列表
 - [ ] 搜索美食，餐馆
 - [ ] 根据距离、销量、评分、特色菜等进行排序和筛选
