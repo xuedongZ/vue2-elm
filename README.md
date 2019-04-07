@@ -1,18 +1,17 @@
 ## 前言
 
-vue2的发布后自己也研究了一段时间，奈何公司的技术栈是以react为主，没有机会好好利用vue2去做一个完整的项目。虽然写了几个demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么web端也只是因为经常用，熟悉它的布局。之前的饿了么官网是用angular1写的，最近才发现原来这段时间改成了vue1，看来饿了么也入了vue的坑。
+vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以 react 为主，没有机会好好利用 vue2 去做一个完整的项目。虽然写了几个 demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么 web 端也只是因为经常用，熟悉它的布局。之前的饿了么官网是用 angular1 写的，最近才发现原来这段时间改成了 vue1，看来饿了么也入了 vue 的坑。
 
+首先遇到的问题当然是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
 
-首先遇到的问题当然是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx反向代理，webpack-dev-server的proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
-
-
-__注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。__
-
+**注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
 
 ## 技术栈
-vue2 + vue-rotuer2 + vuex2 + webpack + ES6 + fetch + sass + flex + http-proxy-middleware反向代理
+
+vue2 + vue-rotuer2 + vuex2 + webpack + ES6 + fetch + sass + flex + http-proxy-middleware 反向代理
 
 ## 目标功能
+
 - [x] 定位功能
 - [x] 选择城市
 - [x] 搜索地址
@@ -27,15 +26,15 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6 + fetch + sass + flex + http-proxy-mi
 - [ ] 个人中心
 - [ ] 帐户信息
 - [ ] 服务中心
-- [ ] 新增、修改收货地址
+- [ ] 添加、删除、修改收货地址
 - [ ] 订单列表
 - [ ] 下单功能
 - [ ] 付款(很难实现)
 
-
-说明：因为并不是elm官方，而且因为要开代理，必须在pc端打开，所以预计最多只能做到下单这一步，下单成功后可以在手机客户端查看并付款。
+说明：因为并不是 elm 官方，而且因为要开代理，必须在 pc 端打开，所以预计最多只能做到下单这一步，下单成功后可以在手机客户端查看并付款。
 
 ## 项目布局
+
 ```
 |-- build                            // webpack配置文件
 |-- config                           // 项目打包路径
@@ -99,26 +98,34 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6 + fetch + sass + flex + http-proxy-mi
 |-- README.md                        // 说明
 ```
 
-
-
 ## 项目运行
+
 ```
-git clone https://github.com/bailicangdu/elm.git
+克隆，或者直接下载
+git clone https://github.com/bailicangdu/vue2-elm.git  
 
-cd elm
+进入文件夹
+cd vue2-elm
 
+安装依赖
 npm install
 ```
 
 ### 编译环境
+
 ```
+开启本地服务器
 npm run dev
 ```
-访问localhost:8080
+
+访问 localhost:8080
 
 ### 线上版本
+
 ```
 npm run build
+
+生成的elm文件夹放在服务器即可正常访问
+
+访问 http://localhost:8080/
 ```
-
-
