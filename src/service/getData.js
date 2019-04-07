@@ -23,11 +23,11 @@ const currentcity = number => fetch('GET', '/v1/cities/' + number, {})
 const searchplace = (cityid, value) => fetch('GET', '/v1/pois', { type: 'search', city_id: cityid, keyword: value })
 
 //临时数据
-// const setpromise = data => {
-// 	return new Promise((resolve, reject) => {
-// 		resolve(data)
-// 	})
-// }
+const setpromise = data => {
+  return new Promise((resolve, reject) => {
+    resolve(data)
+  })
+}
 
 // const cityGuess = () => setpromise(home.guesscity)
 // const hotcity = () => setpromise(home.hotcity)
