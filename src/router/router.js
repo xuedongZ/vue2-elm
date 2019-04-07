@@ -11,7 +11,7 @@ const forget = r => require.ensure([], () => r(require('../page/forget/forget'))
 const checkout = r => require.ensure([], () => r(require('../page/checkout/checkout')), 'checkout')
 const order = r => require.ensure([], () => r(require('../page/order/order')), 'order')
 const vipcard = r => require.ensure([], () => r(require('../page/vipcard/vipcard')), 'vipcard')
-const food = r => require.ensure([], () => r(require('../page/msite/food/food')), 'food')
+const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
 
 export default [
   {
@@ -22,14 +22,8 @@ export default [
       { path: '', redirect: '/home' }, //地址为空时跳转home页面
       { path: '/home', component: home }, //首页城市列表页
       { path: '/city/:cityid', component: city }, //当前选择城市页
-      {
-        path: '/msite',
-        component: msite, //所有商铺列表页
-        children: [
-          { path: 'food', component: food }, //特色商铺列表页
-          { path: '*', component: food } //特色商铺列表页
-        ]
-      },
+      { path: '/msite', component: msite }, //所有商铺列表页
+      { path: '/food', component: food }, //特色商铺列表页
       { path: '/search', component: search }, //搜索页
       { path: '/shop', component: shop }, //商铺详情页
       { path: '/login', component: login }, //登陆注册页
