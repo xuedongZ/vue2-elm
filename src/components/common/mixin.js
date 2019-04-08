@@ -13,6 +13,14 @@ export const loadMore = {
         let requestFram
         let oldScrollTop
 
+        document.addEventListener(
+          'scroll',
+          () => {
+            loadMore()
+          },
+          false
+        )
+
         el.addEventListener(
           'touchstart',
           () => {
