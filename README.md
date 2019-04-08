@@ -20,7 +20,6 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 - [x] 根据距离、销量、评分、特色菜、配送方式等进行排序和筛选 -- 完成
 - [x] 餐馆详细页面 -- 完成
 - [ ] 商品评价页面
-- [ ] 餐馆及单个商品的评价列表展示、筛选
 - [ ] 购物车功能
 - [ ] 登陆、注册
 - [ ] 修改密码
@@ -44,14 +43,17 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 |-- src                              // 源码目录
 |   |-- components                   // 组件
 |       |-- common                   // 公共组件
-|		  	|-- mixin.js             // 组件混合(包括：指令-下拉加载更多。。。）
-|			  |-- shoplist.js          // msite和shop页面的餐馆列表公共组件
+|			|-- loading.js           // 页面初始化加载数据的动画组件
+|			|-- mixin.js             // 组件混合(包括：指令-下拉加载更多，处理图片地址)
+|			|-- ratingStar.js        // 评论的五颗星组件
+|			|-- shoplist.js          // msite和shop页面的餐馆列表公共组件
 |       |-- footer                   // 底部公共组件
 |       |-- header                 	 // 头部公共组件
 |
 |   |-- config                       // 基本配置
 |       |-- env.js                   // 环境切换配置
 |       |-- fetch.js                 // 获取数据
+|       |-- mUtils.js                // 常用的js方法
 |       |-- rem.js                   // px转换rem
 |
 |   |-- images                       // 公共图片
@@ -59,25 +61,27 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 |   |-- pages                        // 页面组件
 |       |-- checkout                 // 确认订单页
 |       |-- city                     // 当前城市页
-|	    	|-- food                 	   // 特色餐馆列表页
+|		|-- food                 	 // 特色餐馆列表页
 |       |-- forget                   // 忘记密码，修改密码页
 |       |-- home                     // 首页
 |       |-- login                    // 登陆注册页
 |       |-- msite                    // 商铺列表页
-|           |-- food                 // 特色餐馆列表页
 |       |-- order                    // 订单列表页
 |       |-- profile                  // 个人中心
 |       |-- search                   // 搜索页
-|       |-- shop                     // 商铺详情页
-|       |-- vipcard                  // vip卡办理页
+|       |-- shop                     // 商铺食品列表页
+|			|-- children
+|				|-- rating           // 评论页
+|				|-- shopDetails      // 商铺信息页
+|       |-- vipcard                  // vip办理页
 |
 |   |-- plugins                      // 引用的插件
 |
 |   |-- router                       // 路由配置
 |
 |   |-- service                      // 数据交互统一调配
-|	    	|-- template                 // 存放临时数据，方便编码环境测试
-|	    	|-- getData.js               // 获取数据的统一调配文件，对接口进行统一管理
+|		|-- template                 // 存放临时数据，方便编码环境测试
+|		|-- getData.js               // 获取数据的统一调配文件，对接口进行统一管理
 |
 |   |-- store                        // vuex的状态管理
 |       |-- modules                  // store模块
@@ -124,7 +128,7 @@ npm install
 开启本地服务器
 npm run dev
 
-访问 http://localhost:8088/
+访问 http://localhost:8088
 ```
 
 ## 线上版本
