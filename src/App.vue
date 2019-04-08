@@ -76,7 +76,9 @@
         </symbol>
       </defs>
     </svg>
-    <router-view></router-view>
+    <transition name="router-fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -90,4 +92,12 @@ export default {
 
 <style lang="scss">
 @import './style/common.scss';
+.router-fade-enter-active,
+.router-fade-leave-active {
+  transition: opacity 0.6s;
+}
+.router-fade-enter,
+.router-fade-leave-active {
+  opacity: 0;
+}
 </style>
