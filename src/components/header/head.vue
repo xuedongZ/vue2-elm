@@ -72,6 +72,7 @@ export default {
   .title_text {
     @include sc(0.8rem, #fff);
     text-align: center;
+    font-weight: bold;
   }
 }
 </style>
