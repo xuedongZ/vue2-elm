@@ -4,7 +4,6 @@ import routes from './router/router'
 import store from './store/'
 import { routerMode } from './config/env'
 import FastClick from './plugins/fastclick'
-import './style/common.scss'
 import './config/rem'
 
 if ('addEventListener' in document) {
