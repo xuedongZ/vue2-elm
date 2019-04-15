@@ -10,10 +10,15 @@
       <section class="detail_left">
         <p>{{name}}</p>
         <div class="rating_sale">
+          <span>评分</span>
           <rating-star :rating='rating'></rating-star>
-          <span>{{rating}}</span>
-          <span>月售 {{month_sales}}单</span>
+          <span>{{rating.toFixed(1)}}</span>
         </div>
+        <p>
+          <span>月售 {{month_sales}}单</span>
+          <span>售价 ¥{{foods.specfoods[0].price}}</span>
+          <span v-if="foods.specfoods.length">起</span>
+        </p>
         <p>
           <span>评论数 {{rating_count}}</span>
           <span>好评率 {{satisfy_rate}}%</span>
@@ -120,15 +125,32 @@ export default {
       display: flex;
       align-items: center;
       span:nth-of-type(1) {
+        @include sc(0.6rem, #666);
+        margin-right: 0.2rem;
+      }
+      span:nth-of-type(2) {
         @include sc(0.55rem, #f60);
         margin-left: 0.2rem;
       }
-      span:nth-of-type(2) {
+      span:nth-of-type(3) {
         @include sc(0.6rem, #666);
         margin-left: 0.4rem;
       }
     }
     p:nth-of-type(2) {
+      font-size: 0;
+      margin-top: 0.3rem;
+      span:nth-of-type(1) {
+        @include sc(0.6rem, #666);
+        margin-right: 0.4rem;
+      }
+      span:nth-of-type(2),
+      span:nth-of-type(3) {
+        @include sc(0.6rem, #f60);
+        margin-right: 0.2rem;
+      }
+    }
+    p:nth-of-type(3) {
       span {
         @include sc(0.6rem, #666);
       }
