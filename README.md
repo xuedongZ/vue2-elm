@@ -10,7 +10,7 @@ vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以
 
 # 技术栈
 
-vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
+vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
 
 # 目标功能
 
@@ -24,7 +24,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 - [x] 购物车功能 -- 完成
 - [x] 店铺评价页面 -- 完成
 - [x] 单个食品详情页面 -- 完成
-- [ ] 商家详情页
+- [x] 商家详情页 -- 完成
 - [ ] 登陆、注册
 - [ ] 修改密码
 - [ ] 个人中心
