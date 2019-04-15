@@ -4,7 +4,7 @@ vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以
 
 既然要写一个完整的项目，就要认真对待，除了付款其他所有功能都尽可能实现，包括登陆、注册、个人中心、搜索、购物车、下单等等，也包括所有我能注意到的细节也都一并做出来，所以这绝对算是一个比较大的项目。
 
-此次项目不打算使用模拟数据，所有数据均使用从官网实时获取的真实数据，最大程度实现和官网一样的功能，首先遇到的问题当然是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
+此次项目不打算使用模拟数据，所有数据均使用从官网实时获取的真实数据，最大程度实现和官网一样的功能，所以首先遇到的问题是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
 
 **注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
 
@@ -72,7 +72,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 |       |-- order                    // 订单列表页
 |       |-- profile                  // 个人中心
 |       |-- search                   // 搜索页
-|       |-- shop                     // 商铺食品列表页
+|       |-- shop                     // 商铺筛选页
 |			|-- children
 |				|-- rating           // 评论页
 |				|-- shopDetails      // 商铺信息页
@@ -142,7 +142,33 @@ npm run build
 生成的elm文件夹放在服务器即可正常访问
 ```
 
-示例：
+# 示例：
+
+## 城市列表页
+
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/home.png" width="365" height="619"/>
 
-如果对你有帮助，请 star 一下吧 😊
+## 搜索地址页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/city.png" width="365" height="619"/>
+
+## 商铺列表页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/msite.png" width="365" height="619"/>
+
+## 商铺筛选页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/food.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/food1.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/food2.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/food3.png" width="365" height="619"/>
+
+## 搜索页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/search.png" width="365" height="619"/>
+
+## 餐馆详情页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/shop_cart.png" width="365" height="619"/>
+
+如果觉得不错，请 star 一下吧 😊
