@@ -23,7 +23,7 @@ vue2 + vue-rotuer2 + vuex2 + webpack + ES6/7 + fetch + sass + flex + svg + http-
 - [x] 餐馆食品列表页 -- 完成
 - [x] 购物车功能 -- 完成
 - [x] 店铺评价页面 -- 完成
-- [ ] 单个食品详情页面
+- [x] 单个食品详情页面 -- 完成
 - [ ] 商家详情页
 - [ ] 登陆、注册
 - [ ] 修改密码
@@ -181,4 +181,4 @@ npm run build
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.gif" width="365" height="619"/>
 
-如果觉得不错，请 star 一下吧 😊
+如果觉得不错，请给个 star 吧 😊
