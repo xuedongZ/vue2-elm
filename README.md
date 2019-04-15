@@ -25,7 +25,7 @@ vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-p
 - [x] 店铺评价页面 -- 完成
 - [x] 单个食品详情页面 -- 完成
 - [x] 商家详情页 -- 完成
-- [x] 登陆、注册
+- [x] 登陆、注册 -- 完成
 - [ ] 修改密码
 - [ ] 个人中心
 - [ ] 帐户信息
@@ -172,7 +172,7 @@ npm run build
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/search.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/search.gif" width="365" height="619"/>
 
-## 餐馆详情页
+## 餐馆食品列表与购物车
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/shop_cart.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/shop_cart.gif" width="365" height="619"/>
@@ -181,5 +181,19 @@ npm run build
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.gif" width="365" height="619"/>
+
+## 食品详情页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/fooddetail.png" width="365" height="619"/>
+
+## 餐馆信息页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/shopdetail1.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/shopdetail2.png" width="365" height="619"/>
+
+## 登陆页
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/login1.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/login2.png" width="365" height="619"/>
 
 如果觉得不错，请 star 一下吧 😊

@@ -861,6 +861,10 @@ export default {
                 border-radius: 0.3rem;
                 margin-right: 0.1rem;
                 transform: scale(0.8);
+                p {
+                  white-space: nowrap;
+                  line-height: 0.4rem;
+                }
               }
               .attribute_new {
                 position: absolute;
