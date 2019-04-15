@@ -56,19 +56,18 @@ vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-p
 |			|-- shoplist.js          // msite和shop页面的餐馆列表公共组件
 |       |-- footer                   // 底部公共组件
 |       |-- header                 	 // 头部公共组件
-|
 |   |-- config                       // 基本配置
 |       |-- env.js                   // 环境切换配置
 |       |-- fetch.js                 // 获取数据
 |       |-- mUtils.js                // 常用的js方法
 |       |-- rem.js                   // px转换rem
-|
 |   |-- images                       // 公共图片
-|
 |   |-- pages                        // 页面组件
 |       |-- city                     // 当前城市页
 |		|-- food                 	 // 食品筛选排序页
 |		|-- confirmOrder             // 确认订单页
+|			|--children
+|				|--remark			 //	订单备注页
 |       |-- forget                   // 忘记密码，修改密码页
 |       |-- home                     // 首页
 |       |-- login                    // 登陆注册页
@@ -76,12 +75,11 @@ vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-p
 |       |-- order                    // 订单列表页
 |       |-- profile                  // 个人中心
 |			|--children
-|				|--balance			 //我的余额
-|				|--benefit			 //我的优惠
-|				|--info				 //帐户信息
-|				|--points			 //我的积分
-|				|--service			 //服务中心
-|
+|				|--balance			 // 我的余额
+|				|--benefit			 // 我的优惠
+|				|--info				 // 帐户信息
+|				|--points			 // 我的积分
+|				|--service			 // 服务中心
 |       |-- search                   // 搜索页
 |       |-- shop                     // 商铺筛选页
 |			|-- children
@@ -193,7 +191,7 @@ npm run build
 
 ## 食品详情页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/images/fooddetail.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/fooddetail.png" width="365" height="619"/>
 
 ## 餐馆信息页
 
@@ -209,13 +207,22 @@ npm run build
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/reset.png" width="365" height="619"/>
 
-#### 其他页面陆续开发中。。。
+## 个人中心
+
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/>
+
+#### 其他页面正在开发中。。。
 
 # 总结
 
 > 本项目主要用于熟悉如何用 vue2 构建一个中大型项目
-> vue 在开发的过程中的体验很不错，上手快、运行效率高，饿了么从 angular 转向 vue 不是没有道理的，看来 vue 会越来越火
-> 开发环境 macOS 10.12.3 Chrome 55
-> 推荐另一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
 
-如果觉得不错，请 star 一下吧 😊
+> vue 在开发的过程中的体验很不错，上手快、运行效率高，饿了么从 angular 转向 vue 不是没有道理的，看来 vue 会越来越火
+
+> 开发环境 macOS 10.12.3 Chrome 55
+
+> 如有问题请直接在 Issues 中提问，或者可以加我的 QQ 1264889788
+
+> 另外推荐一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
+
+##### 如果觉得不错，请 star 一下吧 😊

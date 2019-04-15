@@ -205,6 +205,12 @@ export const getcaptchas = () => fetch('POST', '/v1/captchas', {})
 // 	geohash,
 // 	entities,
 // });
+/**
+ * 获取快速备注列表
+ */
+// export const getRemark = (id, sig) => fetch('GET', '/v1/carts/' + id + '/remarks', {
+// 	sig
+// });
 
 /**
  * 以下是临时数据
@@ -238,3 +244,4 @@ export const accountLogin = (username, password, captcha_code) => setpromise(log
 export const checkExsis = (checkNumber, type) => setpromise(login.checkExsis)
 export const sendMobile = (sendData, captcha_code, type, password) => setpromise(login.send)
 export const checkout = (geohash, entities) => setpromise(confirm.checkout)
+export const getRemark = (id, sig) => setpromise(confirm.remark)
