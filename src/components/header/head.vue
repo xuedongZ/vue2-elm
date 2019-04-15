@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin.scss';
+@import '../../style/mixin';
 
 #head_top {
   background-color: $blue;

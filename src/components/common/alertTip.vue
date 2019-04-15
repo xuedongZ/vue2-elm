@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin.scss';
+@import '../../style/mixin';
 @keyframes tipMove {
   0% {
     transform: scale(1);
@@ -63,7 +63,7 @@ export default {
   margin-left: -6rem;
   width: 12rem;
   animation: tipMove 0.4s;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
   border: 1px;
   padding-top: 0.6rem;
   display: flex;

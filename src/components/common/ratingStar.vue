@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin.scss';
+@import '../../style/mixin';
 .rating_container {
   position: relative;
   @include wh(2rem, 0.4rem);

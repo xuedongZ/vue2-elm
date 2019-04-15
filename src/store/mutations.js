@@ -7,44 +7,61 @@ export default {
     state.latitude = latitude
     state.longitude = longitude
   },
+
   [RECORD_SHOPDETAIL](state, detail) {
     state.shopDetail = detail
   },
   // 加入购物车
-  [ADD_CART](state, { shopid, category_id, item_id, food_id, name, price, specs }) {
+  [ADD_CART](state, { shopid, category_id, item_id, food_id, name, price, specs, packing_fee, sku_id, stock }) {
     let cart = state.cartList
     if (cart[shopid] && cart[shopid][category_id] && cart[shopid][category_id][item_id] && cart[shopid][category_id][item_id][food_id]) {
       cart[shopid][category_id][item_id][food_id]['num']++
     } else if (cart[shopid] && cart[shopid][category_id] && cart[shopid][category_id][item_id]) {
       cart[shopid][category_id][item_id][food_id] = {}
       cart[shopid][category_id][item_id][food_id]['num'] = 1
+      cart[shopid][category_id][item_id][food_id]['id'] = food_id
       cart[shopid][category_id][item_id][food_id]['name'] = name
       cart[shopid][category_id][item_id][food_id]['price'] = price
       cart[shopid][category_id][item_id][food_id]['specs'] = specs
+      cart[shopid][category_id][item_id][food_id]['packing_fee'] = packing_fee
+      cart[shopid][category_id][item_id][food_id]['sku_id'] = sku_id
+      cart[shopid][category_id][item_id][food_id]['stock'] = stock
     } else if (cart[shopid] && cart[shopid][category_id]) {
       cart[shopid][category_id][item_id] = {}
       cart[shopid][category_id][item_id][food_id] = {}
       cart[shopid][category_id][item_id][food_id]['num'] = 1
+      cart[shopid][category_id][item_id][food_id]['id'] = food_id
       cart[shopid][category_id][item_id][food_id]['name'] = name
       cart[shopid][category_id][item_id][food_id]['price'] = price
       cart[shopid][category_id][item_id][food_id]['specs'] = specs
+      cart[shopid][category_id][item_id][food_id]['packing_fee'] = packing_fee
+      cart[shopid][category_id][item_id][food_id]['sku_id'] = sku_id
+      cart[shopid][category_id][item_id][food_id]['stock'] = stock
     } else if (cart[shopid]) {
       cart[shopid][category_id] = {}
       cart[shopid][category_id][item_id] = {}
       cart[shopid][category_id][item_id][food_id] = {}
       cart[shopid][category_id][item_id][food_id]['num'] = 1
+      cart[shopid][category_id][item_id][food_id]['id'] = food_id
       cart[shopid][category_id][item_id][food_id]['name'] = name
       cart[shopid][category_id][item_id][food_id]['price'] = price
       cart[shopid][category_id][item_id][food_id]['specs'] = specs
+      cart[shopid][category_id][item_id][food_id]['packing_fee'] = packing_fee
+      cart[shopid][category_id][item_id][food_id]['sku_id'] = sku_id
+      cart[shopid][category_id][item_id][food_id]['stock'] = stock
     } else {
       cart[shopid] = {}
       cart[shopid][category_id] = {}
       cart[shopid][category_id][item_id] = {}
       cart[shopid][category_id][item_id][food_id] = {}
       cart[shopid][category_id][item_id][food_id]['num'] = 1
+      cart[shopid][category_id][item_id][food_id]['id'] = food_id
       cart[shopid][category_id][item_id][food_id]['name'] = name
       cart[shopid][category_id][item_id][food_id]['price'] = price
       cart[shopid][category_id][item_id][food_id]['specs'] = specs
+      cart[shopid][category_id][item_id][food_id]['packing_fee'] = packing_fee
+      cart[shopid][category_id][item_id][food_id]['sku_id'] = sku_id
+      cart[shopid][category_id][item_id][food_id]['stock'] = stock
     }
     //返回一个新的对象，否则计算属性无法监听到数据的变化
     state.cartList = Object.assign({}, cart)
@@ -80,10 +97,12 @@ export default {
     state.cartList = Object.assign({}, state.cartList)
     setStore('buyCart', state.cartList)
   },
+
   [RECORD_USERINFO](state, info) {
     state.userInfo = info
     setStore('useInfo', info)
   },
+
   [GET_USERINFO](state) {
     let info = getStore('useInfo')
     if (info) {
