@@ -54,7 +54,7 @@ export const loadMore = (element, callback) => {
   let requestFram
   let oldScrollTop
 
-  element.addEventListener(
+  document.body.addEventListener(
     'scroll',
     () => {
       loadMore()

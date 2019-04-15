@@ -6,16 +6,17 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    context: [ //代理路径
+    context: [
+      //代理路径
       '/shopping',
+      '/ugc',
       '/v1',
       '/v2',
       '/v3',
-      '/v4',
+      '/v4'
     ],
     proxypath: 'https://mainsite-restapi.ele.me',
     proxyTable: {},

@@ -12,19 +12,25 @@ export const loadMore = {
         let marginBottom
         let requestFram
         let oldScrollTop
-
-        document.addEventListener(
-          'scroll',
-          () => {
-            loadMore()
-          },
-          false
-        )
+        let scrollEl
+        let heightEl
+        let scrollType = el.attributes.type.value
+        let scrollReduce = 2
+        if (scrollType == 1) {
+          scrollEl = document.body
+          heightEl = el
+        } else {
+          scrollEl = el
+          heightEl = el.children[0]
+        }
 
         el.addEventListener(
           'touchstart',
           () => {
-            height = el.offsetHeight
+            height = heightEl.clientHeight
+            if (scrollType == 2) {
+              height = height
+            }
             setTop = el.offsetTop
             paddingBottom = getStyle(el, 'paddingBottom')
             marginBottom = getStyle(el, 'marginBottom')
@@ -43,7 +49,7 @@ export const loadMore = {
         el.addEventListener(
           'touchend',
           () => {
-            oldScrollTop = document.body.scrollTop
+            oldScrollTop = scrollEl.scrollTop
             moveEnd()
           },
           false
@@ -51,19 +57,19 @@ export const loadMore = {
 
         const moveEnd = () => {
           requestFram = requestAnimationFrame(() => {
-            if (document.body.scrollTop != oldScrollTop) {
-              oldScrollTop = document.body.scrollTop
+            if (scrollEl.scrollTop != oldScrollTop) {
+              oldScrollTop = scrollEl.scrollTop
               moveEnd()
             } else {
               cancelAnimationFrame(requestFram)
-              height = el.offsetHeight
+              height = heightEl.clientHeight
               loadMore()
             }
           })
         }
 
         const loadMore = () => {
-          if (document.body.scrollTop + windowHeight >= height + setTop + paddingBottom + marginBottom) {
+          if (scrollEl.scrollTop + windowHeight >= height + setTop + paddingBottom + marginBottom - scrollReduce) {
             binding.value()
           }
         }
@@ -77,6 +83,9 @@ export const getImgPath = {
     //传递过来的图片地址需要处理后才能正常使用
     getImgPath(path) {
       let suffix
+      if (!path) {
+        return 'http://test.fe.ptdev.cn/elm/elmlogo.jpeg'
+      }
       if (path.indexOf('jpeg') !== -1) {
         suffix = '.jpeg'
       } else {
