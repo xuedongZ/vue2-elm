@@ -1,10 +1,10 @@
 # 前言
 
-vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以 react 为主，没有机会好好利用 vue2 去做一个完整的项目。虽然写了几个 demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么也只是因为经常用，熟悉它的布局。之前的饿了么官网是用 angular 写的，最近才发现原来这段时间改成了 vue1，看来饿了么也入了 vue 的坑。
+vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以 react 为主，没有机会好好利用 vue2 去做一个完整的项目。虽然写了几个 demo，但和写一个完整的项目还是有很大差别的。于是自己想着用空余的时间写一个项目，选择了饿了么也只是因为经常用，熟悉它的布局。之前的饿了么官网是用 angular 写的，最近才发现原来这段时间改成了 vue，看来饿了么也入了 vue 的坑。
 
 既然要写一个完整的项目，就要认真对待，所以除了付款其他所有功能都尽可能的实现，包括登陆、注册、个人中心、搜索、购物车、下单等等，也包括所有我能注意到的细节也都一并做出来，所以这绝对算是一个比较大的项目。
 
-此次项目不打算使用模拟数据，所有数据均使用从官网实时获取的真实数据，最大程度实现和官网一样的功能，所以首先遇到的问题是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy。这里我用的是 http-proxy-middleware 其实它们的原理是一样的。
+项目不使用模拟数据，所有数据均使用从官网实时获取的真实数据，最大程度实现和官网一样的功能，所以首先遇到的问题是跨域，我们启动本地服务器是获取不到官网数据的，这是跨域的。当然解决的方法很多，jsonp，nginx 反向代理，webpack-dev-server 的 proxy，这里我用的是 http-proxy-middleware 原理都是一样的。
 
 **注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
 
@@ -64,9 +64,9 @@ vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-p
 |   |-- images                       // 公共图片
 |
 |   |-- pages                        // 页面组件
-|       |-- checkout                 // 确认订单页
 |       |-- city                     // 当前城市页
-|		|-- food                 	 // 特色餐馆列表页
+|		|-- food                 	 // 食品筛选排序页
+|		|-- confirmOrder             // 确认订单页
 |       |-- forget                   // 忘记密码，修改密码页
 |       |-- home                     // 首页
 |       |-- login                    // 登陆注册页
@@ -74,7 +74,7 @@ vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-p
 |       |-- order                    // 订单列表页
 |       |-- profile                  // 个人中心
 |       |-- search                   // 搜索页
-|       |-- shop                     // 商铺筛选页
+|       |-- shop                     // 商铺筛选页
 |			|-- children
 |				|-- foodDetail       // 单个商铺信息页
 |				|-- shopDetail       // 商铺信息页
@@ -182,4 +182,4 @@ npm run build
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/src/images/rating.gif" width="365" height="619"/>
 
-如果觉得不错，请给个 star 吧 😊
+如果觉得不错，请 star 一下吧 😊
