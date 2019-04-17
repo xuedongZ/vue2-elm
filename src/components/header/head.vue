@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -33,7 +33,9 @@ export default {
   },
   created() {
     //获取本地存储的用户信息
-    this.GET_USERINFO();
+    if (this.signinUp) {
+      this.getUserInfo();
+    }
   },
   mounted() {
 
@@ -45,8 +47,8 @@ export default {
     ]),
   },
   methods: {
-    ...mapMutations([
-      'GET_USERINFO',
+    ...mapActions([
+      'getUserInfo'
     ]),
   },
 
