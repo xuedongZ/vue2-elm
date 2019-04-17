@@ -32,7 +32,7 @@ export default {
     }
   },
   created() {
-    //获取本地存储的用户信息
+    //获取用户信息
     if (this.signinUp) {
       this.getUserInfo();
     }

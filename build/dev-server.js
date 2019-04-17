@@ -45,11 +45,13 @@ if (context.length) {
   server.use(proxyMiddleware(context, options))
 }
 
-// server.use(proxyMiddleware('/*/*', {
-//     target: 'https://mainsite-restapi.ele.me',
-//     changeOrigin: true,
-//     secure: false,
-// }))
+server.use(
+  proxyMiddleware('/*/*', {
+    target: 'https://mainsite-restapi.ele.me',
+    changeOrigin: true,
+    secure: false
+  })
+)
 
 // handle fallback for HTML5 history API
 server.use(require('connect-history-api-fallback')())

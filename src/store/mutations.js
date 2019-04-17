@@ -1,4 +1,24 @@
-import { RECORD_ADDRESS, ADD_CART, REDUCE_CART, INIT_BUYCART, CLEAR_CART, RECORD_SHOPDETAIL, RECORD_USERINFO, GET_USERINFO, CONFIRM_REMARK, CONFIRM_INVOICE, CHOOSE_SEARCH_ADDRESS, SAVE_GEOHASH, CHOOSE_ADDRESS } from './mutation-types.js'
+import {
+  RECORD_ADDRESS,
+  ADD_CART,
+  REDUCE_CART,
+  INIT_BUYCART,
+  CLEAR_CART,
+  RECORD_SHOPDETAIL,
+  RECORD_USERINFO,
+  GET_USERINFO,
+  CONFIRM_REMARK,
+  CONFIRM_INVOICE,
+  CHOOSE_SEARCH_ADDRESS,
+  SAVE_GEOHASH,
+  CHOOSE_ADDRESS,
+  NEED_VALIDATION,
+  SAVE_CART_ID_SIG,
+  SAVE_ORDER_PARAM,
+  CHANGE_ORDER_PARAM,
+  ORDER_SUCCESS,
+  SAVE_SHOPID
+} from './mutation-types.js'
 import { setStore, getStore } from '../config/mUtils'
 
 export default {
@@ -115,6 +135,10 @@ export default {
       state.userInfo = null
     }
   },
+  //保存商铺id
+  [SAVE_SHOPID](state, shopid) {
+    state.shopid = shopid
+  },
   //记录订单页面用户选择的备注, 传递给订单确认页面
   [CONFIRM_REMARK](state, { remarkText, inputText }) {
     state.remarkText = remarkText
@@ -136,5 +160,26 @@ export default {
   [CHOOSE_ADDRESS](state, { address, index }) {
     state.choosedAddress = address
     state.addressIndex = index
+  },
+  //保存下单需要验证的返回值
+  [NEED_VALIDATION](state, needValidation) {
+    state.needValidation = needValidation
+  },
+  //保存下单后购物id 和 sig
+  [SAVE_CART_ID_SIG](state, { cart_id, sig }) {
+    state.cart_id = cart_id
+    state.sig = sig
+  },
+  //保存下单参数，用户验证页面调用
+  [SAVE_ORDER_PARAM](state, orderParam) {
+    state.orderParam = orderParam
+  },
+  //修改下单参数
+  [CHANGE_ORDER_PARAM](state, newParam) {
+    state.orderParam = Object.assign({}, state.orderParam, newParam)
+  },
+  //下单成功，保存订单返回信息
+  [ORDER_SUCCESS](state, order) {
+    state.orderMessage = order
   }
 }
