@@ -129,15 +129,15 @@
 
       </defs>
     </svg>
-    <section @click="gotoAddress('msite')" class="guide_item">
+    <section @click="gotoAddress({path: '/msite', query: {geohash}})" class="guide_item">
       <svg class="icon_style">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('msite') !== -1? '#msiteActive' : '#msite'"></use>
       </svg>
       <span>外卖</span>
     </section>
-    <section @click="gotoAddress('/find')" class="guide_item">
+    <section @click="gotoAddress({path: '/search/' + geohash})" class="guide_item">
       <svg class="icon_style">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('find') !== -1? '#findActive' : '#find'"></use>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('search') !== -1? '#findActive' : '#find'"></use>
       </svg>
       <span>发现</span>
     </section>
@@ -165,7 +165,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.path.indexOf('order'))
+
   },
   mounted() {
 
@@ -197,6 +197,7 @@ export default {
   bottom: 0;
   @include wh(100%, 1.95rem);
   display: flex;
+  box-shadow: 0 -0.026667rem 0.053333rem rgba(0, 0, 0, 0.1);
 }
 .guide_item {
   flex: 1;

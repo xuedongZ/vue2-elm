@@ -139,6 +139,7 @@ export default {
   padding-top: 1.95rem;
   background-color: #ebebeb;
   z-index: 102;
+  overflow-y: auto;
 }
 
 ul {

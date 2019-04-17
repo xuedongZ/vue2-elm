@@ -14,14 +14,14 @@ export const loadMore = {
         let oldScrollTop
         let scrollEl
         let heightEl
-        let scrollType = el.attributes.type.value
+        let scrollType = el.attributes.type && el.attributes.type.value
         let scrollReduce = 2
-        if (scrollType == 1) {
-          scrollEl = document.body
-          heightEl = el
-        } else {
+        if (scrollType == 2) {
           scrollEl = el
           heightEl = el.children[0]
+        } else {
+          scrollEl = document.body
+          heightEl = el
         }
 
         el.addEventListener(

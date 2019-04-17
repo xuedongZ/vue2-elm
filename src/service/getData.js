@@ -7,6 +7,7 @@ import * as food from './tempdata/food'
 import * as shop from './tempdata/shop'
 import * as login from './tempdata/login'
 import * as confirm from './tempdata/confirm'
+import * as order from './tempdata/order'
 
 /**
  * 获取首页默认地址
@@ -330,6 +331,15 @@ export const getcaptchas = () => fetch('POST', '/v1/captchas', {})
 // });
 
 /**
+ * 获取订单列表
+ */
+
+// export const getOrderList = (user_id, offset) => fetch('GET', '/bos/v2/users/' + user_id + '/orders', {
+// 	limit: 10,
+// 	offset,
+// });
+
+/**
  * 以下是临时数据
  */
 const setpromise = data => {
@@ -370,3 +380,4 @@ export const placeOrders = (user_id, cart_id, address_id, description, entities,
 export const rePostVerify = (cart_id, sig, type) => setpromise(confirm.verfiyCode)
 export const validateOrders = ({ user_id, cart_id, address_id, description, entities, geohash, sig, validation_code, validation_token }) => setpromise(confirm.orderSuccess)
 export const payRequest = (merchantOrderNo, userId) => setpromise(confirm.payDetail)
+export const getOrderList = (user_id, offset) => setpromise(order.orderList)
