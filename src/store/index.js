@@ -24,7 +24,8 @@ const state = {
   cartId: null,
   sig: null,
   orderParam: null,
-  orderMessage: null
+  orderMessage: null,
+  orderDetail: null
 }
 
 export default new Vuex.Store({
