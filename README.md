@@ -182,7 +182,7 @@ npm run build
 
 # 效果演示
 
-### (演示效果为模拟数据，只做展示用，真实效果请下载项目并运行，方可获取真实的官网数据);
+#### (演示效果为模拟数据，只做展示用，真实效果请下载项目并运行，方可获取真实的官网数据);
 
 [demo 地址](http://test.fe.ptdev.cn/elm/)（请用 chrome 手机模式预览）
 
@@ -248,6 +248,7 @@ npm run build
 ## 个人中心
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile2.png" width="365" height="619"/>
 
 ## 确认订单页
 
