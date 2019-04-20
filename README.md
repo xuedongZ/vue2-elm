@@ -8,19 +8,9 @@ vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以
 
 **注：此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
 
-# 效果演示
-
-#### (演示效果为模拟数据，只做展示用，真实效果请下载项目并运行，方可获取真实的官网数据);
-
-[demo 地址](http://test.fe.ptdev.cn/elm/)（请用 chrome 手机模式预览）
-
-### 移动端扫描下方二维码
-
-![](https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/elm_ewm.png)
-
 # 技术栈
 
-vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
+vue2 + vue-router2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
 
 # 项目运行（nodejs 6.0+）
 
@@ -188,7 +178,35 @@ npm run build
 
 6、项目写到现在，从 登陆注册到、首页、搜索、商家列表、购物车、下单、订单列表、个人中心 一个流程走完之后、不但对 vue 的理解更深一层，而且对以后掌控大型项目的时候也有非常多的帮助，做一个实际的项目才能对自己有很大的提升。
 
-7、项目已完成的页面共 22 个，最主要的购物下单功能已经实现，预计全部完成后总页面数在 35 个左右。
+7、项目已完成的页面共 22 个，最主要的购物下单功能已经实现，预计全部完成后总页面数在 40 个左右。
+
+# 效果演示
+
+#### (演示效果为模拟数据，只做展示用，真实效果请下载项目并运行，方可获取真实的官网数据);
+
+[demo 地址](http://test.fe.ptdev.cn/elm/)（请用 chrome 手机模式预览）
+
+### 移动端扫描下方二维码
+
+![](https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/elm_ewm.png)
+
+# 最后
+
+> 本项目主要用于熟悉如何用 vue2 构建一个中大型项目
+
+> vue 在开发的过程中的体验很不错，上手快、运行效率高，饿了么从 angular 转向 vue 不是没有道理的，看来 vue 会越来越火
+
+> 开发环境 macOS 10.12.3 Chrome 55
+
+> 如有问题请直接在 Issues 中提，或者有 react, vue 相关的问题可以加我的 QQ 1264889788，一起讨论，欢迎骚扰。
+
+> 推荐一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
+
+> 另外一个 vue2 + vuex 的入门项目，比当前的项目简单很多，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
+
+#### 个人时间有限，还有其他的项目要做，在此感谢辰妹子，个人中心的所有页面都由她来完成，辛苦了！🙏
+
+#### 如果觉得不错，请 star 一下吧 😊🙏
 
 # 项目截图
 
@@ -254,27 +272,10 @@ npm run build
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirm1.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirmOrder.gif" width="365" height="619"/>
+
 ## 订单列表页
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/order.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/order2.png" width="365" height="619"/>
 
 #### 其他页面正在开发中。。。
-
-# 最后
-
-> 本项目主要用于熟悉如何用 vue2 构建一个中大型项目
-
-> vue 在开发的过程中的体验很不错，上手快、运行效率高，饿了么从 angular 转向 vue 不是没有道理的，看来 vue 会越来越火
-
-> 开发环境 macOS 10.12.3 Chrome 55
-
-> 如有问题请直接在 Issues 中提，或者可以加我的 QQ 1264889788
-
-> 推荐一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
-
-> 另外一个 vue2 + vuex 的入门项目，比当前的项目简单很多，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
-
-##### 个人时间有限，还有其他的项目要做，在此感谢辰妹子，个人中心的所有页面都由她来完成，辛苦了！🙏
-
-##### 如果觉得不错，请 star 一下吧 😊
