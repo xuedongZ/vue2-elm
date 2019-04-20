@@ -22,7 +22,7 @@ vue2 的发布后自己也研究了一段时间，奈何公司的技术栈是以
 
 vue2 + vue-rotuer2 + vuex + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware 反向代理
 
-# 项目运行
+# 项目运行（nodejs 6.0+）
 
 ```
 克隆，或者直接下载
