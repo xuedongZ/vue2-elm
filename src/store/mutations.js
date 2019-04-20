@@ -19,7 +19,10 @@ import {
   ORDER_SUCCESS,
   SAVE_SHOPID,
   SAVE_ORDER,
-  OUT_LOGIN
+  OUT_LOGIN,
+  RETSET_NAME,
+  SAVE_AVANDER,
+  SAVE_ADDRESS
 } from './mutation-types.js'
 import { setStore, getStore } from '../config/mUtils'
 
@@ -131,6 +134,9 @@ export default {
   },
   //获取用户信息存入vuex
   [GET_USERINFO](state, info) {
+    if (state.userInfo && state.userInfo.username !== info.username) {
+      return
+    }
     if (!state.login) {
       return
     }
@@ -139,6 +145,10 @@ export default {
     } else {
       state.userInfo = null
     }
+  },
+  //修改用户名
+  [RETSET_NAME](state, username) {
+    state.userInfo = Object.assign({}, state.userInfo, { username })
   },
   //保存商铺id
   [SAVE_SHOPID](state, shopid) {
@@ -195,5 +205,13 @@ export default {
   [OUT_LOGIN](state) {
     state.userInfo = null
     state.login = false
+  },
+  //保存图片
+  [SAVE_AVANDER](state, imgPath) {
+    state.imgPath = imgPath
+  },
+  //删除地址列表
+  [SAVE_ADDRESS](state, newAdress) {
+    state.removeAddress = newAdress
   }
 }
