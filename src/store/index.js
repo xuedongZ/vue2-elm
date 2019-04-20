@@ -25,7 +25,8 @@ const state = {
   sig: null,
   orderParam: null,
   orderMessage: null,
-  orderDetail: null
+  orderDetail: null,
+  login: true
 }
 
 export default new Vuex.Store({
