@@ -1,7 +1,7 @@
  <template>
   <div class="detail_page">
     <head-top :head-title="question.title" go-back='true'></head-top>
-    <section v-html="markdownText" class="detail_dom"></section>
+    <section v-html="markdownText" class="markdown"></section>
   </div>
 </template>
 
@@ -51,19 +51,10 @@ export default {
   span {
     font-family: Helvetica Neue, Tahoma, Arial;
   }
-  .detail_dom {
-    font-size: 0.65rem;
-    padding: 0 0.7rem;
-    * {
-      width: 100%;
-      margin-bottom: 0.25rem;
-    }
-    img {
-      width: 100%;
-    }
-    li {
-      @include sc(0.7rem, #666);
-    }
-  }
+}
+.markdown {
+  font-size: 0.65rem;
+  padding: 0 0.7rem;
+  color: #666;
 }
 </style>

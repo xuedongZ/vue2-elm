@@ -11,6 +11,7 @@ import * as order from './tempdata/order'
 import * as service from './tempdata/service'
 import * as addDetail from './tempdata/addDetail'
 import * as addresspart from './tempdata/address'
+import * as vip from './tempdata/vip'
 
 // /**
 //  * 获取首页默认地址
@@ -384,6 +385,14 @@ import * as addresspart from './tempdata/address'
 // })
 
 /**
+ *兑换会员卡
+ */
+// export const vipCart= (id, number, password) => fetch('POST','/member/v1/users/' + id + '/delivery_card/physical_card/bind',{
+// 	number,
+// 	password
+// })
+
+/**
  * 以下是临时数据
  */
 const setpromise = data => {
@@ -424,6 +433,7 @@ export const rePostVerify = (cart_id, sig, type) => setpromise(confirm.verfiyCod
 export const validateOrders = ({ user_id, cart_id, address_id, description, entities, geohash, sig, validation_code, validation_token }) => setpromise(confirm.orderSuccess)
 export const payRequest = (merchantOrderNo, userId) => setpromise(confirm.payDetail)
 export const getService = () => setpromise(service.serviceData)
+export const vipCart = (id, number, password) => setpromise(vip.vipcart)
 
 export const getUser = () => setpromise(login.userInfo)
 export const sendLogin = (code, mobile, validate_token) => setpromise(login.userInfo)
