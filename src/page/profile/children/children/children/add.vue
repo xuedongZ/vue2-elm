@@ -27,7 +27,7 @@
           </div>
         </section>
         <section class="addbutton">
-          <button :class="{butopacity:butpart}">新增地址</button>
+          <button :class="{butopacity:butpart}" @click="submitThing">新增地址</button>
         </section>
       </form>
     </section>
@@ -38,7 +38,7 @@
 <script>
 import headTop from '../../../../../components/header/head'
 import { getImgPath } from '../../../../../components/common/mixin'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -56,6 +56,7 @@ export default {
       standbytele: '',
       standbytelenum: '',
       addSearch: false,
+      //newAddress:{},			//增加数组的元素
     }
   },
   created() {
@@ -68,9 +69,11 @@ export default {
   },
   computed: {
     ...mapState([
-      'addAddress'
+      'addAddress',
     ]),
-
+    ...mapMutations([
+      'ADD_ADDRESS'
+    ])
   },
   props: [],
   methods: {
@@ -116,6 +119,11 @@ export default {
         this.butpart = true;
       } else {
         this.butpart = false;
+      }
+    },
+    submitThing() {
+      if (this.butpart) {
+        //this.ADD_ADDRESS({"name":this.message,"address":this.mesthree,"address_detail":})
       }
     }
   }

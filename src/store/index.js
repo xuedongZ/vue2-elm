@@ -30,7 +30,17 @@ const state = {
   imgPath: null, //头像地址
   removeAddress: [], //移除地址
   addAddress: '', //新增地址
-  question: null //问题详情
+  question: null, //问题详情
+  //增加地址的几个key值
+  newAddress: {}
+  // address:null,
+  // address_detail:null,
+  // geohash:null,
+  // name:null,
+  // phone:null,
+  // phone_bk:null,
+  // poi:null,
+  // poi_type:null,
 }
 
 export default new Vuex.Store({

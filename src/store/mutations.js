@@ -24,7 +24,8 @@ import {
   SAVE_AVANDER,
   SAVE_ADDRESS,
   SAVE_ADDDETAIL,
-  SAVE_QUESTION
+  SAVE_QUESTION,
+  ADD_ADDRESS
 } from './mutation-types.js'
 import { setStore, getStore } from '../config/mUtils'
 
@@ -223,5 +224,31 @@ export default {
   //保存所选问题标题和详情
   [SAVE_QUESTION](state, question) {
     state.question = { ...question }
+  },
+  // [ADD_ADDRESS](state, {
+  // 	address,
+  // 	address_detail,
+  // 	geohash,
+  // 	name,
+  // 	phone,
+  // 	phone_bk,
+  // 	poi,
+  // 	poi_type,
+  // }){
+  // 	let addressList = state.newAddress;
+  // 	addressList['address']=address;
+  // 	addressList['address_detail']=address_detail;
+  // 	addressList['geohash']=geohash;
+  // 	addressList['name']=name;
+  // 	addressList['phone']=phone;
+  // 	addressList['phone_bk']=phone_bk;
+  // 	addressList['poi']=poi;
+  // 	addressList['poi_type']=poi_type;
+  // 	state.newAddress = Object.assign({}, addressList);
+  // 	state.removeAddress = state.removeAddress.unshift(state.newAddress)
+  // }
+  [ADD_ADDRESS](state, obj) {
+    state.newAddress = { ...obj }
+    state.removeAddress = state.removeAddress.unshift(state.newAddress)
   }
 }
