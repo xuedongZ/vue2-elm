@@ -369,6 +369,19 @@ import * as service from './tempdata/service'
 // // export const getOrderDetail = (user_id, orderid) => fetch('GET', '/bos/v1/users/' + user_id + '/orders/' + orderid + '/snapshot', {});
 
 /**
+ *个人中心里编辑地址
+ */
+export const getAddressList = user_id => fetch('GET', '/v1/users/' + user_id + '/addresses')
+/**
+ *个人中心里搜索地址
+ */
+export const getSearchAddress = keyword =>
+  fetch('GET', 'v1/pois', {
+    keyword: keyword,
+    type: 'nearby'
+  })
+
+/**
  * 以下是临时数据
  */
 const setpromise = data => {
@@ -414,6 +427,3 @@ export const getUser = () => setpromise(login.userInfo)
 export const sendLogin = (code, mobile, validate_token) => setpromise(login.userInfo)
 export const getOrderList = (user_id, offset) => setpromise(order.orderList)
 export const getOrderDetail = (user_id, orderid) => setpromise(order.orderDetail)
-
-//获取地址
-export const getAddressList = user_id => fetch('GET', '/v1/users/' + user_id + '/addresses')

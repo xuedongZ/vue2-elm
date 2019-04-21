@@ -127,7 +127,6 @@ export default {
       this.username = this.getUsermes.username;
       this.infotel = this.getUsermes.mobile;
       this.avatarinfo = this.getUsermes.avatar;
-      console.log(this.getUsermes.user_id)
     }
   },
   mounted() {
