@@ -53,6 +53,13 @@ server.use(
   })
 )
 
+server.use(
+  proxyMiddleware('/m.ele.me@json', {
+    target: 'https://crayfish.elemecdn.com',
+    changeOrigin: true
+  })
+)
+
 // handle fallback for HTML5 history API
 server.use(require('connect-history-api-fallback')())
 

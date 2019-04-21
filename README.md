@@ -63,6 +63,7 @@ npm run build
 - [x] 下单功能 -- 完成 ✨✨🎉🎉
 - [x] 订单列表 -- 完成
 - [x] 订单详情 -- 完成
+- [x] 下载 App -- 完成
 - [ ] 帐户信息
 - [ ] 上传头像，修改用户名
 - [ ] 积分商城
@@ -107,6 +108,7 @@ npm run build
 |				|--addAddress        //	添加地址页
 |				  |--children
 |					|--searchAddress // 搜索地址页
+|       |-- download                 // 下载App
 |       |-- find                     // 发现页
 |       |-- forget                   // 忘记密码，修改密码页
 |       |-- home                     // 首页
@@ -121,8 +123,9 @@ npm run build
 |				|--benefit			 // 我的优惠
 |				|--info				 // 帐户信息
 |				|--points			 // 我的积分
-|				|--service			 // 服务中心
+
 |       |-- search                   // 搜索页
+|		|--service			         // 服务中心
 |       |-- shop                     // 商铺筛选页
 |			|-- children
 |			  	|-- foodDetail       // 商铺信息页
@@ -198,7 +201,7 @@ npm run build
 
 > 开发环境 macOS 10.12.3 Chrome 55
 
-> 如有问题请直接在 Issues 中提，或者有 react, vue 相关的问题可以加我的 QQ 1264889788，一起讨论，欢迎骚扰。
+> 如有问题请直接在 Issues 中提，或者可以加我的 QQ 1264889788
 
 > 推荐一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
 
@@ -206,7 +209,7 @@ npm run build
 
 #### 个人时间有限，还有其他的项目要做，在此感谢辰妹子，个人中心的所有页面都由她来完成，辛苦了！🙏
 
-#### 如果觉得不错，请 star 一下吧 😊🙏
+#### 如果对您有帮助，请 star 一下吧 😊
 
 # 项目截图
 
