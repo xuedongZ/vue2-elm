@@ -27,6 +27,7 @@ import {
   SAVE_QUESTION,
   ADD_ADDRESS
 } from './mutation-types.js'
+
 import { setStore, getStore } from '../config/mUtils'
 
 export default {
@@ -228,8 +229,9 @@ export default {
   [SAVE_QUESTION](state, question) {
     state.question = { ...question }
   },
+
   [ADD_ADDRESS](state, obj) {
-    state.newAddress = { ...obj }
-    state.removeAddress = state.removeAddress.unshift(state.newAddress)
+    console.log(state.removeAddress)
+    state.removeAddress = [...state.removeAddress, obj]
   }
 }
