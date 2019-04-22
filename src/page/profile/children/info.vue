@@ -6,7 +6,7 @@
         <input type="file" class="profileinfopanel-upload" @change="uploadAvatar">
         <h2>头像</h2>
         <div class="headportrait-div">
-          <img :src="imgPath" class="headportrait-div-top" v-if="this.avatarinfo">
+          <img :src="imgPath" class="headportrait-div-top" v-if="avatar">
           <span class="headportrait-div-top" v-else>
             <svg>
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#avatar-default"></use>
@@ -96,7 +96,7 @@
       </section>
     </section>
     <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
@@ -112,28 +112,15 @@ export default {
   data() {
     return {
       username: '',    //用户名
-      resetname: '',
+      resetname: '', //重置用户名
       infotel: '',     //用户手机
-      getUsermes: {},  //用户信息
-      avatarinfo: '',      //用户头像
-      show: false,
+      avatar: '',      //用户头像
+      show: false,     //显示提示框
       isEnter: true,
       isLeave: false,
       showAlert: false,
       alertText: null,
     }
-  },
-  created() {
-    this.getUsermes = this.userInfo;
-    if (this.userInfo) {
-      this.username = this.getUsermes.username;
-      this.infotel = this.getUsermes.mobile;
-      this.avatarinfo = this.getUsermes.avatar;
-    }
-  },
-  mounted() {
-
-
   },
   beforeDestroy() {
     clearTimeout(this.timer)
@@ -147,18 +134,19 @@ export default {
     ...mapState([
       'userInfo', 'imgPath'
     ]),
-
   },
   methods: {
     ...mapMutations([
       'OUT_LOGIN', 'SAVE_AVANDER'
     ]),
+
     exitlogin() {
       this.show = true;
       this.isEnter = true;
       this.isLeave = false;
     },
     waitingThing() {
+      //取消推出
       clearTimeout(this.timer)
       this.isEnter = false;
       this.isLeave = true;
@@ -167,6 +155,7 @@ export default {
         this.show = false;
       }, 200)
     },
+    //退出登陆
     outLogin() {
       this.OUT_LOGIN();
       this.waitingThing();
@@ -177,6 +166,7 @@ export default {
       this.alertText = '请在手机APP中设置';
     },
     async uploadAvatar() {
+      //上传头像
       if (this.userInfo) {
         let input = document.querySelector('.profileinfopanel-upload')
         let data = new FormData();
@@ -194,11 +184,18 @@ export default {
           this.alertText = '上传失败';
           throw new Error(error);
         }
-
+      }
+    }
+  },
+  watch: {
+    userInfo: function (value) {
+      if (value && value.user_id) {
+        this.username = value.username;
+        this.infotel = value.mobile;
+        this.avatar = value.avatar;
       }
     }
   }
-
 }
 </script>
 
@@ -506,6 +503,7 @@ body .coverpart .cover-animate-leave {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>
