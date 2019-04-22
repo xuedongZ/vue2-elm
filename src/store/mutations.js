@@ -25,7 +25,8 @@ import {
   SAVE_ADDRESS,
   SAVE_ADDDETAIL,
   SAVE_QUESTION,
-  ADD_ADDRESS
+  ADD_ADDRESS,
+  BUY_CART
 } from './mutation-types.js'
 
 import { setStore, getStore } from '../config/mUtils'
@@ -202,6 +203,7 @@ export default {
   },
   //下单成功，保存订单返回信息
   [ORDER_SUCCESS](state, order) {
+    state.cartPrice = null
     state.orderMessage = order
   },
   //进入订单详情页前保存该订单信息
@@ -229,9 +231,12 @@ export default {
   [SAVE_QUESTION](state, question) {
     state.question = { ...question }
   },
-
+  //增加地址
   [ADD_ADDRESS](state, obj) {
-    console.log(state.removeAddress)
     state.removeAddress = [...state.removeAddress, obj]
+  },
+  //会员卡价格纪录
+  [BUY_CART](state, price) {
+    state.cartPrice = price
   }
 }

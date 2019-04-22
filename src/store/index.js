@@ -30,7 +30,8 @@ const state = {
   imgPath: null, //头像地址
   removeAddress: [], //移除地址
   addAddress: '', //新增地址
-  question: null //问题详情
+  question: null, //问题详情
+  cartPrice: null //会员卡价格
 }
 
 export default new Vuex.Store({
