@@ -167,121 +167,252 @@ npm run build
 
 # 项目布局
 
-```
-|-- build                            		// webpack配置文件
-|-- config                           		// 项目打包路径
-|-- elm                           	 		// 上线项目文件，放在服务器即可正常访问
-|-- screenshots                      		// 项目截图
-|-- src                              		// 源码目录
-|   |-- components                   		// 组件
-|       |-- common                   		// 公共组件
-|			|-- buyCart.js           		// 购物车组件
-|				|-- loading.js            	// 页面初始化加载数据的动画组件
-|				|-- mixin.js              	// 组件混合(包括：指令-下拉加载更多，处理图片地址)
-|				|-- ratingStar.js         	// 评论的五颗星组件
-|				|-- shoplist.js           	// msite和shop页面的餐馆列表公共组件
-|       |-- footer                   		// 底部公共组件
-|       |-- header                 	 		// 头部公共组件
-|   |-- config                       		// 基本配置
-|       |-- env.js                   		// 环境切换配置
-|       |-- fetch.js                 		// 获取数据
-|       |-- mUtils.js                		// 常用的js方法
-|       |-- rem.js                   		// px转换rem
-|   |-- images                       		// 公共图片
-|   |-- pages
-|   	|-- balance                  		// 余额页
-|			|--children
-|				|--detail			       	// 余额说明
-|       |-- benefit                  		// 红包页
-|			|--children
-|				|--commend			     	// 推荐有奖
-|				|--coupon			       	// 代金券说明
-|				|--exchange			     	// 兑换红包
-|				|--hbDescription		 	// 红包说明
-|				|--hbHistory			   	// 历史红包
-|       |-- city                     		// 当前城市页
-|		|-- food                 	       	// 食品筛选排序页
-|		|-- confirmOrder                 	// 确认订单页
-|		    |--children
-|			      |--invoice			         //	选择发票页
-|			      |--remark			           //	订单备注页
-|			      |--payment			         //	付款页
-|			      |--userValidation		     //	用户验证页
-|			      |--chooseAddress         //	选择地址页
-|		            |--children
-|				            |--addAddress        //	添加地址页
-|				            |--children
-|					              |--searchAddress // 搜索地址页
-|       |-- download                 // 下载App
-|       |-- find                     // 发现页
-|       |-- forget                   // 忘记密码，修改密码页
-|       |-- home                     // 首页
-|       |-- login                    // 登录注册页
-|       |-- msite                    // 商铺列表页
-|       |-- order                    // 订单列表页
-|			      |--children
-|				        |--orderDetail		 // 订单详情页
-|       |-- points                   // 积分页
-|		  	|--children
-|				|--detail			 //	积分说明
-|       |-- profile                  // 个人中心
-|			|--children
-|				|--balance			 // 我的余额
-|				|--benefit			 // 我的优惠
-|				|--info				 // 帐户信息
-|		          |--children
-|				    |--address       // 添加地址
-|		              |--children
-|				        |--add       // 新增地址
-|		                  |--children
-|				            |--addDetail// 搜索地址
-|				|--points			 // 我的积分
-|				|--setusername	     // 重置用户名
-|       |-- search                   // 搜索页
-|		|--service			         // 服务中心
-|			|--children
-|				|--questionDetail    // 问题详情
+|-- build // webpack 配置文件
+|-- config // 项目打包路径
+|-- elm // 上线项目文件，放在服务器即可正常访问
+|-- screenshots // 项目截图
+|-- src // 源码目录
+| |-- components // 组件
+| |-- common // 公共组件
+| |-- buyCart.js // 购物车组件
+| |-- loading.js // 页面初始化加载数据的动画组件
+| |-- mixin.js // 组件混合(包括：指令-下拉加载更多，处理图片地址)
+| |-- ratingStar.js // 评论的五颗星组件
+| |-- shoplist.js // msite 和 shop 页面的餐馆列表公共组件
+| |-- footer // 底部公共组件
+| |-- header // 头部公共组件
+| |-- config // 基本配置
+| |-- env.js // 环境切换配置
+| |-- fetch.js // 获取数据
+| |-- mUtils.js // 常用的 js 方法
+| |-- rem.js // px 转换 rem
+| |-- images // 公共图片
+| |-- pages
+| |-- balance // 余额页
+| |--children
+| |--detail // 余额说明
+| |-- benefit // 红包页
+| |--children
+| |--commend // 推荐有奖
+| |--coupon // 代金券说明
+| |--exchange // 兑换红包
+| |--hbDescription // 红包说明
+| |--hbHistory // 历史红包
+| |-- city // 当前城市页
+| |-- food // 食品筛选排序页
+| |-- confirmOrder // 确认订单页
+| |--children
+| |--invoice // 选择发票页
+| |--remark // 订单备注页
+| |--payment // 付款页
+| |--userValidation // 用户验证页
+| |--chooseAddress // 选择地址页
+| |--children
+| |--addAddress // 添加地址页
+| |--children
+| |--searchAddress // 搜索地址页
+| |-- download // 下载 App
+| |-- find // 发现页
+| |-- forget // 忘记密码，修改密码页
+| |-- home // 首页
+| |-- login // 登录注册页
+| |-- msite // 商铺列表页
+| |-- order // 订单列表页
+| |--children
+| |--orderDetail // 订单详情页
+| |-- points // 积分页
+| |--children
+| |--detail // 积分说明
+| |-- profile // 个人中心
+| |--children
+| |--balance // 我的余额
+| |--benefit // 我的优惠
+| |--info // 帐户信息
+| |--children
+| |--address // 添加地址
+| |--children
+| |--add // 新增地址
+| |--children
+| |--addDetail// 搜索地址
+| |--points // 我的积分
+| |--setusername // 重置用户名
+| |-- search // 搜索页
+| |--service // 服务中心
+| |--children
+| |--questionDetail // 问题详情
 |       |-- shop                     // 商铺筛选页
-|			|-- children
-|			  	|-- foodDetail       // 商铺信息页
-|			  	|-- shopDetail       // 单个商铺信息页
-|					|-- children
-|				  		|-- shopSafe // 商铺认证信息页
-|       |-- vipcard                  // 会员卡办理页
-|			|-- children
-|			  	|-- invoiceRecord    // 购买记录
-|			  	|-- useCart          // 使用卡号购买
-|			  	|-- vipDescription   // 会员说明
+| |-- children
+| |-- foodDetail // 商铺信息页
+| |-- shopDetail // 单个商铺信息页
+| |-- children
+| |-- shopSafe // 商铺认证信息页
+| |-- vipcard // 会员卡办理页
+| |-- children
+| |-- invoiceRecord // 购买记录
+| |-- useCart // 使用卡号购买
+| |-- vipDescription // 会员说明
 |
-|   |-- plugins                      // 引用的插件
+| |-- plugins // 引用的插件
 |
-|   |-- router                       // 路由配置
+| |-- router // 路由配置
 |
-|   |-- service                      // 数据交互统一调配
-|		|-- template                 // 开发阶段的临时数据
-|		|-- getData.js               // 获取数据的统一调配文件，对接口进行统一管理
+| |-- service // 数据交互统一调配
+| |-- template // 开发阶段的临时数据
+| |-- getData.js // 获取数据的统一调配文件，对接口进行统一管理
 |
-|   |-- store                        // vuex的状态管理
-|       |-- modules                  // store模块
-|       |-- action.js                // 配置actions
-|       |-- getters.js               // 配置getters
-|       |-- index.js                 // 引用vuex，创建store
-|       |-- mutation-types.js        // 定义常量muations名
-|       |-- mutations.js             // 配置mutations
+| |-- store // vuex 的状态管理
+| |-- modules // store 模块
+| |-- action.js // 配置 actions
+| |-- getters.js // 配置 getters
+| |-- index.js // 引用 vuex，创建 store
+| |-- mutation-types.js // 定义常量 muations 名
+| |-- mutations.js // 配置 mutations
 |
-|   |-- style                        // 各种样式文件
-|       |-- common.scss              // 公共样式文件
+| |-- style // 各种样式文件
+| |-- common.scss // 公共样式文件
 |       |-- mixin.scss               // 样式配置文件
 |
-|   |-- App.vue                      // 页面入口文件
+| |-- App.vue // 页面入口文件
 |
-|   |-- main.js                      // 程序入口文件，加载各种公共组件
+| |-- main.js // 程序入口文件，加载各种公共组件
 |
-|-- .babelrc                         // ES6语法编译配置
-|-- .editorconfig                    // 代码编写规格
-|-- .gitignore                       // 忽略的文件
-|-- favicon.ico                      // 页面左上角小图标
-|-- index.html                       // 入口html文件
-|-- package.json                     // 项目及工具的依赖配置文件
-|-- README.md                        // 说明
-```
+|-- .babelrc // ES6 语法编译配置
+|-- .editorconfig // 代码编写规格
+|-- .gitignore // 忽略的文件
+|-- favicon.ico // 页面左上角小图标
+|-- index.html // 入口 html 文件
+|-- package.json // 项目及工具的依赖配置文件
+|-- README.md // 说明
+
+.
+├── README.md
+├── build
+├── config
+│   └── index.js
+├── elm
+├── favicon.ico
+├── index.html
+├── package.json
+├── screenshots
+├── src
+│   ├── App.vue
+│   ├── components
+│   │   ├── common
+│   │   │   ├── alertTip.vue
+│   │   │   ├── buyCart.vue
+│   │   │   ├── computeTime.vue
+│   │   │   ├── loading.vue
+│   │   │   ├── mixin.js
+│   │   │   ├── ratingStar.vue
+│   │   │   └── shoplist.vue
+│   │   ├── footer
+│   │   │   └── footGuide.vue
+│   │   └── header
+│   │   └── head.vue
+│   ├── config
+│   │   ├── env.js
+│   │   ├── fetch.js
+│   │   ├── mUtils.js
+│   │   └── rem.js
+│   ├── images
+│   ├── main.js
+│   ├── page
+│   │   ├── balance
+│   │   │   ├── balance.vue
+│   │   │   └── children
+│   │   │   └── detail.vue
+│   │   ├── benefit
+│   │   │   ├── benefit.vue
+│   │   │   └── children
+│   │   │   ├── commend.vue
+│   │   │   ├── coupon.vue
+│   │   │   ├── exchange.vue
+│   │   │   ├── hbDescription.vue
+│   │   │   └── hbHistory.vue
+│   │   ├── city
+│   │   │   └── city.vue
+│   │   ├── confirmOrder
+│   │   │   ├── children
+│   │   │   │   ├── children
+│   │   │   │   │   ├── addAddress.vue
+│   │   │   │   │   └── children
+│   │   │   │   │   └── searchAddress.vue
+│   │   │   │   ├── chooseAddress.vue
+│   │   │   │   ├── invoice.vue
+│   │   │   │   ├── payment.vue
+│   │   │   │   ├── remark.vue
+│   │   │   │   └── userValidation.vue
+│   │   │   └── confirmOrder.vue
+│   │   ├── download
+│   │   │   └── download.vue
+│   │   ├── find
+│   │   │   └── find.vue
+│   │   ├── food
+│   │   │   └── food.vue
+│   │   ├── forget
+│   │   │   └── forget.vue
+│   │   ├── home
+│   │   │   └── home.vue
+│   │   ├── login
+│   │   │   └── login.vue
+│   │   ├── msite
+│   │   │   └── msite.vue
+│   │   ├── order
+│   │   │   ├── children
+│   │   │   │   └── orderDetail.vue
+│   │   │   └── order.vue
+│   │   ├── points
+│   │   │   ├── children
+│   │   │   │   └── detail.vue
+│   │   │   └── points.vue
+│   │   ├── profile
+│   │   │   ├── children
+│   │   │   │   ├── children
+│   │   │   │   │   ├── address.vue
+│   │   │   │   │   └── children
+│   │   │   │   │   ├── add.vue
+│   │   │   │   │   └── children
+│   │   │   │   │   └── addDetail.vue
+│   │   │   │   ├── info.vue
+│   │   │   │   └── setusername.vue
+│   │   │   └── profile.vue
+│   │   ├── search
+│   │   │   └── search.vue
+│   │   ├── service
+│   │   │   ├── children
+│   │   │   │   └── questionDetail.vue
+│   │   │   └── service.vue
+│   │   ├── shop
+│   │   │   ├── children
+│   │   │   │   ├── children
+│   │   │   │   │   └── shopSafe.vue
+│   │   │   │   ├── foodDetail.vue
+│   │   │   │   └── shopDetail.vue
+│   │   │   └── shop.vue
+│   │   └── vipcard
+│   │   ├── children
+│   │   │   ├── invoiceRecord.vue
+│   │   │   ├── useCart.vue
+│   │   │   └── vipDescription.vue
+│   │   └── vipcard.vue
+│   ├── plugins
+│   │   └── swiper.min.js
+│   ├── router
+│   │   └── router.js
+│   ├── service
+│   │   ├── getData.js
+│   │   └── tempdata
+│   ├── store
+│   │   ├── action.js
+│   │   ├── getters.js
+│   │   ├── index.js
+│   │   ├── modules
+│   │   ├── mutation-types.js
+│   │   └── mutations.js
+│   └── style
+│   ├── common.scss
+│   ├── mixin.scss
+│   └── swiper.min.css
+└── tree.md
+
+56 directories, 203 files
