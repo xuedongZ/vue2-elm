@@ -21,6 +21,7 @@ module.exports = {
       '/v3',
       '/v4',
       '/member'
+      '/promotion',
     ],
     proxypath: 'https://mainsite-restapi.ele.me',
     proxyTable: {},
