@@ -11,7 +11,7 @@
             <p><span>{{item.phone}}</span><span v-if="item.phonepk">、{{item.phonepk}}</span></p>
           </div>
           <div class="deletesite" v-if="deletesite">
-            <span @click="deleteSite(index)">x</span>
+            <span @click="deleteSite(index, item)">x</span>
           </div>
         </li>
       </ul>
@@ -26,30 +26,28 @@
         </div>
       </router-link>
     </section>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-import headTop from '../../../../components/header/head'
-import { getImgPath } from '../../../../components/common/mixin'
+import headTop from 'src/components/header/head'
+import { getImgPath } from 'src/components/common/mixin'
 import { mapState, mapActions, } from 'vuex'
-import { getAddressList } from '../../../../service/getData'
+import { getAddressList, deleteAddress } from 'src/service/getData'
 
 export default {
   data() {
     return {
-      deletesite: false,
+      deletesite: false, //是否编辑状态
       editText: '编辑',
-      adressList: [],
+      adressList: [], //地址列表
     }
   },
-  created() {
-    //console.log(this.userInfo.user_id)
-    this.saveAddress()
-
+  mounted() {
+    this.initData();
   },
   mixins: [getImgPath],
   mounted() {
@@ -57,7 +55,6 @@ export default {
   },
   components: {
     headTop,
-
   },
   computed: {
     ...mapState([
@@ -70,7 +67,13 @@ export default {
     ...mapActions([
       'saveAddress'
     ]),
-
+    //初始化信息
+    initData() {
+      if (this.userInfo && this.userInfo.user_id) {
+        this.saveAddress();
+      }
+    },
+    //编辑
     editThing() {
       if (this.editText == '编辑') {
         this.editText = '完成';
@@ -80,15 +83,26 @@ export default {
         this.deletesite = false;
       }
     },
-    deleteSite(index) {
-      this.removeAddress.splice(index, 1);
+    //删除地址
+    async deleteSite(index, item) {
+      if (this.userInfo && this.userInfo.user_id) {
+        await deleteAddress(this.userInfo.user_id, item.id);
+        this.removeAddress.splice(index, 1);
+      }
+    }
+  },
+  watch: {
+    userInfo: function (value) {
+      if (value && value.user_id) {
+        this.initData();
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../../../../style/mixin';
+@import 'src/style/mixin';
 
 .rating_page {
   position: absolute;
@@ -166,6 +180,7 @@ export default {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>
