@@ -49,17 +49,17 @@
     </section>
     <div class="determine" @click="addAddress">确定</div>
     <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-import headTop from '../../../../components/header/head'
+import headTop from 'src/components/header/head'
 import { mapState, mapMutations } from 'vuex'
-import { getAddress, getUser, postAddAddress } from '../../../../service/getData'
-import alertTip from '../../../../components/common/alertTip'
+import { getAddress, getUser, postAddAddress } from 'src/service/getData'
+import alertTip from 'src/components/common/alertTip'
 
 export default {
   data() {
@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     ...mapMutations([
-
+      'CONFIRM_ADDRESS'
     ]),
     chooseSex(sex) {
       this.sex = sex;
@@ -121,14 +121,20 @@ export default {
         this.tag_type = 4;
       }
       let res = await postAddAddress(this.userInfo.user_id, this.searchAddress.name, this.address_detail, this.geohash, this.name, this.phone, this.anntherPhoneNumber, 0, this.sex, this.tag, this.tag_type);
-      this.$router.go(-1);
+      if (res.message) {
+        this.showAlert = true;
+        this.alertText = res.message;
+      } else {
+        this.CONFIRM_ADDRESS(1);
+        this.$router.go(-1);
+      }
     },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../../../../style/mixin';
+@import 'src/style/mixin';
 
 .address_page {
   position: fixed;
@@ -212,6 +218,7 @@ export default {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>
