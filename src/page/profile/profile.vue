@@ -170,9 +170,7 @@ export default {
       this.pointNumber = this.getUserinfo.point;
     }
   },
-
   mixins: [getImgPath],
-
   components: {
     headTop,
     footGuide,
