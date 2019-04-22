@@ -56,5 +56,6 @@ export default {
   font-size: 0.65rem;
   padding: 0 0.7rem;
   color: #666;
+  padding-bottom: 2rem;
 }
 </style>
