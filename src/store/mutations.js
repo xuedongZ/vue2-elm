@@ -69,9 +69,9 @@ export default {
   // 移出购物车
   [REDUCE_CART](state, { shopid, category_id, item_id, food_id, name, price, specs }) {
     let cart = state.cartList
-    let shop = (cart[shopid] = cart[shopid] || {})
-    let category = (shop[category_id] = shop[category_id] || {})
-    let item = (category[item_id] = category[item_id] || {})
+    let shop = cart[shopid] || {}
+    let category = shop[category_id] || {}
+    let item = category[item_id] || {}
     if (item && item[food_id]) {
       if (item[food_id]['num'] > 0) {
         item[food_id]['num']--
