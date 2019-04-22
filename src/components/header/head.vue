@@ -36,9 +36,6 @@ export default {
     this.getUserInfo();
 
   },
-  mounted() {
-
-  },
   props: ['signinUp', 'headTitle', 'goBack'],
   computed: {
     ...mapState([

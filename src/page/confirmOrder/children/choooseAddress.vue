@@ -5,65 +5,70 @@
       <img src="../../../images/add_address.png" height="24" width="24">
       <span>新增收货地址</span>
     </router-link>
-    <ul class="deliverable_address">
-      <li v-for="(item,index) in deliverable" @click="chooseAddress(item, index)">
-        <svg class="choosed_address" :class="{default_address: defaultIndex == index}">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
-        </svg>
-        <div>
-          <header>
-            <span>{{item.name}}</span>
-            <span>{{item.sex == 1? '先生' : '女士'}}</span>
-            <span>{{item.phone}}</span>
-          </header>
-          <div class="address_detail ellipsis">
-            <span v-if="item.tag" :style="{backgroundColor: iconColor(item.tag)}">{{item.tag}}</span>
-            <p>{{item.address_detail}}</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <section id="out_delivery" v-if="deliverdisable.length">
-      <header class="out_header">以下地址超出配送范围</header>
-      <ul class="deliverable_address">
-        <li v-for="(item,index) in deliverdisable">
-          <svg class="choosed_address">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
-          </svg>
-          <div>
-            <header>
-              <span>{{item.name}}</span>
-              <span>{{item.sex == 1? '先生' : '女士'}}</span>
-              <span>{{item.phone}}</span>
-            </header>
-            <div class="address_detail ellipsis">
-              <span v-if="item.tag" :style="{backgroundColor: '#ccc'}">{{item.tag}}</span>
-              <p>{{item.address_detail}}</p>
+    <section id="scroll_section" class="scroll_container">
+      <section class="list_cotainer">
+        <ul class="deliverable_address">
+          <li v-for="(item,index) in deliverable" @click="chooseAddress(item, index)">
+            <svg class="choosed_address" :class="{default_address: defaultIndex == index}">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
+            </svg>
+            <div>
+              <header>
+                <span>{{item.name}}</span>
+                <span>{{item.sex == 1? '先生' : '女士'}}</span>
+                <span>{{item.phone}}</span>
+              </header>
+              <div class="address_detail ellipsis">
+                <span v-if="item.tag" :style="{backgroundColor: iconColor(item.tag)}">{{item.tag}}</span>
+                <p>{{item.address_detail}}</p>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <section id="out_delivery" v-if="deliverdisable.length">
+          <header class="out_header">以下地址超出配送范围</header>
+          <ul class="deliverable_address">
+            <li v-for="(item,index) in deliverdisable">
+              <svg class="choosed_address">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
+              </svg>
+              <div>
+                <header>
+                  <span>{{item.name}}</span>
+                  <span>{{item.sex == 1? '先生' : '女士'}}</span>
+                  <span>{{item.phone}}</span>
+                </header>
+                <div class="address_detail ellipsis">
+                  <span v-if="item.tag" :style="{backgroundColor: '#ccc'}">{{item.tag}}</span>
+                  <p>{{item.address_detail}}</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
     </section>
     <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-import headTop from '../../../components/header/head'
+import headTop from 'src/components/header/head'
 import { mapState, mapMutations } from 'vuex'
-import { getAddress } from '../../../service/getData'
-import alertTip from '../../../components/common/alertTip'
+import { getAddress } from 'src/service/getData'
+import alertTip from 'src/components/common/alertTip'
+import BScroll from 'better-scroll'
 
 export default {
   data() {
     return {
-      addressList: [],
-      deliverable: [],
-      deliverdisable: [],
-      id: null,
+      addressList: [], //地址列表
+      deliverable: [], //有效地址列表
+      deliverdisable: [], //无效地址列表
+      id: null, //ID
       sig: null,
       showAlert: false,
       alertText: null,
@@ -81,8 +86,9 @@ export default {
   props: [],
   computed: {
     ...mapState([
-      'userInfo', 'addressIndex'
+      'userInfo', 'addressIndex', 'newAddress'
     ]),
+    //选择地址
     defaultIndex: function () {
       if (this.addressIndex) {
         return this.addressIndex;
@@ -95,21 +101,30 @@ export default {
     ...mapMutations([
       'CHOOSE_ADDRESS'
     ]),
+    //初始化信息
     async initData() {
-      if (!(this.userInfo && this.userInfo.user_id)) {
-        this.showAlert = true;
-        this.alertText = '请登录'
-        return
+      this.addressList = [];
+      this.deliverable = [];
+      this.deliverdisable = [];
+      if (this.userInfo && this.userInfo.user_id) {
+        this.addressList = await getAddress(this.id, this.sig);
+        //将当前所有地址访问有效无效两种
+        this.addressList.forEach(item => {
+          if (item.is_deliverable) {
+            this.deliverable.push(item);
+          } else {
+            this.deliverdisable.push(item);
+          }
+        })
+        this.$nextTick(() => {
+          new BScroll('#scroll_section', {
+            deceleration: 0.001,
+            bounce: true,
+            swipeTime: 1800,
+            click: true,
+          });
+        })
       }
-      this.addressList = await getAddress(this.id, this.sig);
-      this.addressList.forEach(item => {
-        if (item.is_deliverable) {
-          this.deliverable.push(item);
-        } else {
-          this.deliverdisable.push(item);
-        }
-
-      })
     },
     iconColor(name) {
       switch (name) {
@@ -117,16 +132,27 @@ export default {
         case '学校': return '#3190e8';
       }
     },
+    //选择地址
     chooseAddress(address, index) {
       this.CHOOSE_ADDRESS({ address, index });
-      this.$router.go(-1);
+
+    },
+  },
+  watch: {
+    userInfo: function (value) {
+      if (value && value.user_id) {
+        this.initData();
+      }
+    },
+    newAddress: function (value) {
+      this.initData();
     },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/mixin';
+@import 'src/style/mixin';
 
 .rating_page {
   position: fixed;
@@ -134,13 +160,25 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #f5f5f5;
-  z-index: 204;
+  background-color: #fff;
+  z-index: 202;
   padding-top: 1.95rem;
   p,
   span {
     font-family: Helvetica Neue, Tahoma, Arial;
   }
+}
+.scroll_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 1.95rem;
+  overflow-y: auto;
+}
+.list_cotainer {
+  padding-bottom: 5rem;
 }
 .add_icon_footer {
   position: fixed;
@@ -206,6 +244,7 @@ export default {
     @include sc(0.6rem, #666);
     line-height: 1.5rem;
     padding-left: 0.5rem;
+    background-color: #f5f5f5;
   }
   * {
     color: #ccc;
@@ -217,6 +256,7 @@ export default {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>
