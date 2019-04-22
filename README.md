@@ -139,79 +139,79 @@ npm run build
 
 ### 商铺列表页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.gif" width="365" height="619"/>
 
 ### 商铺筛选页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
 
 ### 餐馆食品列表与购物车
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.gif" width="365" height="619"/>
 
 ### 确认订单页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirm1.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirmOrder.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirm1.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirmOrder.gif" width="365" height="619"/>
 
 ### 搜索页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.gif" width="365" height="619"/>
 
 ### 登录页
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login1.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login1.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login.gif" width="365" height="619"/>
 
 ### 个人中心
 
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/><img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.gif" width="365" height="619"/>
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.gif" width="365" height="619"/>
 
 # 项目布局
 
 ```
-|-- build                            // webpack配置文件
-|-- config                           // 项目打包路径
-|-- elm                           	 // 上线项目文件，放在服务器即可正常访问
-|-- screenshots                      // 项目截图
-|-- src                              // 源码目录
-|   |-- components                   // 组件
-|       |-- common                   // 公共组件
-|			|-- buyCart.js           // 购物车组件
-|			|-- loading.js           // 页面初始化加载数据的动画组件
-|			|-- mixin.js             // 组件混合(包括：指令-下拉加载更多，处理图片地址)
-|			|-- ratingStar.js        // 评论的五颗星组件
-|			|-- shoplist.js          // msite和shop页面的餐馆列表公共组件
-|       |-- footer                   // 底部公共组件
-|       |-- header                 	 // 头部公共组件
-|   |-- config                       // 基本配置
-|       |-- env.js                   // 环境切换配置
-|       |-- fetch.js                 // 获取数据
-|       |-- mUtils.js                // 常用的js方法
-|       |-- rem.js                   // px转换rem
-|   |-- images                       // 公共图片
+|-- build                            		// webpack配置文件
+|-- config                           		// 项目打包路径
+|-- elm                           	 		// 上线项目文件，放在服务器即可正常访问
+|-- screenshots                      		// 项目截图
+|-- src                              		// 源码目录
+|   |-- components                   		// 组件
+|       |-- common                   		// 公共组件
+|			|-- buyCart.js           		// 购物车组件
+|				|-- loading.js            	// 页面初始化加载数据的动画组件
+|				|-- mixin.js              	// 组件混合(包括：指令-下拉加载更多，处理图片地址)
+|				|-- ratingStar.js         	// 评论的五颗星组件
+|				|-- shoplist.js           	// msite和shop页面的餐馆列表公共组件
+|       |-- footer                   		// 底部公共组件
+|       |-- header                 	 		// 头部公共组件
+|   |-- config                       		// 基本配置
+|       |-- env.js                   		// 环境切换配置
+|       |-- fetch.js                 		// 获取数据
+|       |-- mUtils.js                		// 常用的js方法
+|       |-- rem.js                   		// px转换rem
+|   |-- images                       		// 公共图片
 |   |-- pages
-|       |-- balance                  // 余额页
-|		  	|--children
-|				|--detail			 //	余额说明
-|       |-- benefit                  // 红包页
-|		  |--children
-|			|--commend			     //	推荐有奖
-|			|--coupon			     //	代金券说明
-|			|--exchange			     //	兑换红包
-|			|--hbDescription		 //	红包说明
-|			|--hbHistory			 //	历史红包
-|       |-- city                     // 当前城市页
-|		|-- food                 	 // 食品筛选排序页
-|		|-- confirmOrder             // 确认订单页
-|		  |--children
-|			|--invoice			     //	选择发票页
-|			|--remark			     //	订单备注页
-|			|--payment			     //	付款页
-|			|--userValidation		 //	用户验证页
-|			|--chooseAddress         //	选择地址页
-|		      |--children
-|				|--addAddress        //	添加地址页
-|				  |--children
-|					|--searchAddress // 搜索地址页
+|   	|-- balance                  		// 余额页
+|			|--children
+|				|--detail			       	// 余额说明
+|       |-- benefit                  		// 红包页
+|			|--children
+|				|--commend			     	// 推荐有奖
+|				|--coupon			       	// 代金券说明
+|				|--exchange			     	// 兑换红包
+|				|--hbDescription		 	// 红包说明
+|				|--hbHistory			   	// 历史红包
+|       |-- city                     		// 当前城市页
+|		|-- food                 	       	// 食品筛选排序页
+|		|-- confirmOrder                 	// 确认订单页
+|		    |--children
+|			      |--invoice			         //	选择发票页
+|			      |--remark			           //	订单备注页
+|			      |--payment			         //	付款页
+|			      |--userValidation		     //	用户验证页
+|			      |--chooseAddress         //	选择地址页
+|		            |--children
+|				            |--addAddress        //	添加地址页
+|				            |--children
+|					              |--searchAddress // 搜索地址页
 |       |-- download                 // 下载App
 |       |-- find                     // 发现页
 |       |-- forget                   // 忘记密码，修改密码页
@@ -219,8 +219,8 @@ npm run build
 |       |-- login                    // 登录注册页
 |       |-- msite                    // 商铺列表页
 |       |-- order                    // 订单列表页
-|			|--children
-|				|--orderDetail		 // 订单详情页
+|			      |--children
+|				        |--orderDetail		 // 订单详情页
 |       |-- points                   // 积分页
 |		  	|--children
 |				|--detail			 //	积分说明
