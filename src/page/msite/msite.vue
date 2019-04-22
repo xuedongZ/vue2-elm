@@ -8,7 +8,7 @@
         </svg>
       </router-link>
       <router-link to="/home" slot="msite-title" class="msite_title">
-        <span class="title_text">{{msietTitle}}</span>
+        <span class="title_text ellipsis">{{msietTitle}}</span>
       </router-link>
     </head-top>
     <nav class="msite_nav">
@@ -47,13 +47,13 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { imgBaseUrl } from '../../config/env'
-import headTop from '../../components/header/head'
-import footGuide from '../../components/footer/footGuide'
-import shopList from '../../components/common/shoplist'
-import { msiteAdress, msiteFoodTypes, msiteShopList } from '../../service/getData'
-import '../../plugins/swiper.min.js'
-import '../../style/swiper.min.css'
+import { imgBaseUrl } from 'src/config/env'
+import headTop from 'src/components/header/head'
+import footGuide from 'src/components/footer/footGuide'
+import shopList from 'src/components/common/shoplist'
+import { msiteAdress, msiteFoodTypes, msiteShopList } from 'src/service/getData'
+import 'src/plugins/swiper.min.js'
+import 'src/style/swiper.min.css'
 
 export default {
   data() {
@@ -126,7 +126,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin';
+@import 'src/style/mixin';
 .link_search {
   left: 0.8rem;
   @include wh(0.8rem, 0.9rem);
