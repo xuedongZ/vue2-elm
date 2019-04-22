@@ -18,7 +18,7 @@
 
 ## 技术栈
 
-vue2 + vuex2 + vue-router + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware
+vue2 + vuex + vue-router + webpack + ES6/7 + fetch + sass + flex + svg + http-proxy-middleware
 
 ## 项目运行（nodejs 6.0+）
 
@@ -67,7 +67,7 @@ npm run build
 
 > 推荐一个 react + redux 开源项目，对 react 感兴趣的朋友赶紧去看看。[地址在这里](https://github.com/bailicangdu/react-pxq)
 
-> 另外一个 vue2 + vuex2 的入门项目，比当前的项目简单很多，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
+> 另外一个 vue2 + vuex 的入门项目，比当前的项目简单很多，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
 
 ## 效果演示
 
@@ -103,7 +103,7 @@ npm run build
 - [x] 添加、删除、修改收货地址
 - [x] 帐户信息 -- 完成
 - [x] 服务中心 -- 完成
-- [ ] 红包
+- [x] 红包
 - [ ] 上传头像，修改用户名
 - [ ] 付款(很难实现)
 
@@ -132,7 +132,15 @@ npm run build
 |   |-- images                       // 公共图片
 |   |-- pages
 |       |-- balance                  // 余额页
+|		  	|--children
+|				|--detail			 //	余额说明
 |       |-- benefit                  // 红包页
+|		  |--children
+|			|--commend			     //	推荐有奖
+|			|--coupon			     //	代金券说明
+|			|--exchange			     //	兑换红包
+|			|--hbDescription		 //	红包说明
+|			|--hbHistory			 //	历史红包
 |       |-- city                     // 当前城市页
 |		|-- food                 	 // 食品筛选排序页
 |		|-- confirmOrder             // 确认订单页
@@ -156,6 +164,8 @@ npm run build
 |			|--children
 |				|--orderDetail		 // 订单详情页
 |       |-- points                   // 积分页
+|		  	|--children
+|				|--detail			 //	积分说明
 |       |-- profile                  // 个人中心
 |			|--children
 |				|--balance			 // 我的余额
@@ -258,16 +268,6 @@ npm run build
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.gif" width="365" height="619"/>
-
-### 登陆页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login1.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login2.png" width="365" height="619"/>
-
-### 个人中心
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/profile2.png" width="365" height="619"/>
 
 ### 确认订单页
 

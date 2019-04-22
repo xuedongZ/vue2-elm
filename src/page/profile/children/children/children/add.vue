@@ -123,19 +123,19 @@ export default {
       }
     },
     submitThing() {
-      //if(this.butpart){
-      this.ADD_ADDRESS({
-        name: this.message,
-        address: this.mesthree,
-        address_detail: this.addAddress,
-        geohash: 'wtw37r7cxep4',
-        phone: this.telenum,
-        phone_bk: this.standbytelenum,
-        poi: this.addAddress,
-        poi_type: 0,
-      });
-      this.$router.go(-1);
-      //}
+      if (this.butpart) {
+        this.ADD_ADDRESS({
+          name: this.message,
+          address: this.mesthree,
+          address_detail: this.addAddress,
+          geohash: 'wtw37r7cxep4',
+          phone: this.telenum,
+          phone_bk: this.standbytelenum,
+          poi: this.addAddress,
+          poi_type: 0,
+        });
+        this.$router.go(-1);
+      }
     }
   }
 }
