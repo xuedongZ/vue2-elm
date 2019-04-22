@@ -142,7 +142,7 @@ export default [
           }
         ]
       },
-      //登陆注册页
+      //登录注册页
       {
         path: '/login',
         component: login

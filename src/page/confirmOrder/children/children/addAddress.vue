@@ -99,7 +99,7 @@ export default {
     async addAddress() {
       if (!(this.userInfo && this.userInfo.user_id)) {
         this.showAlert = true;
-        this.alertText = '请登陆'
+        this.alertText = '请登录'
       } else if (!this.name) {
         this.showAlert = true;
         this.alertText = '请输入姓名'

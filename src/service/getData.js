@@ -187,7 +187,7 @@ import * as hongbao from './tempdata/hongbao'
 // });
 
 // /**
-//  * 手机号登陆
+//  * 手机号登录
 //  */
 
 // // export const sendLogin = (code, mobile, validate_token) => fetch('POST', '/v1/login/app_mobile', {
@@ -209,7 +209,7 @@ import * as hongbao from './tempdata/hongbao'
 // export const getcaptchas = () => fetch('POST', '/v1/captchas', {});
 
 // /**
-//  * 账号密码登陆
+//  * 账号密码登录
 //  */
 
 // export const accountLogin = (username, password, captcha_code) => fetch('POST', '/v2/login', {username, password, captcha_code});

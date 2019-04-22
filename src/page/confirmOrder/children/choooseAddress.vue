@@ -98,7 +98,7 @@ export default {
     async initData() {
       if (!(this.userInfo && this.userInfo.user_id)) {
         this.showAlert = true;
-        this.alertText = '请登陆'
+        this.alertText = '请登录'
         return
       }
       this.addressList = await getAddress(this.id, this.sig);

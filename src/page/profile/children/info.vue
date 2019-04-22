@@ -116,7 +116,7 @@ export default {
       infotel: '',     //用户手机
       avatar: '',      //用户头像
       show: false,     //显示提示框
-      isEnter: true,  //是否登陆
+      isEnter: true,  //是否登录
       isLeave: false, //是否退出
       showAlert: false,
       alertText: null,
@@ -155,7 +155,7 @@ export default {
         this.show = false;
       }, 200)
     },
-    //退出登陆
+    //退出登录
     outLogin() {
       this.OUT_LOGIN();
       this.waitingThing();

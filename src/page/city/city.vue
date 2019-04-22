@@ -8,7 +8,7 @@
         <input type="search" name="city" placeholder="输入学校、商务楼、地址" class="city_input input_style" required v-model='inputVaule'>
       </div>
       <div>
-        <input type="submit" name="submit" class="city_submit input_style" @click='postpois'>
+        <input type="submit" name="submit" class="city_submit input_style" @click='postpois' value="提交">
       </div>
     </form>
     <header v-if="historytitle" class="pois_search_history">搜索历史</header>
