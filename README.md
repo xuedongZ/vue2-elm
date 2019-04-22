@@ -4,15 +4,16 @@
 
 这种功能性的项目很实用但是往往也很枯燥，没有音乐播放器那么看起来绚丽，思来想去发现饿了么是一个不错的素材，一来它足够复杂，开放的外卖平台比一般的公司独有商铺更加复杂。二来 见到那么多美食，大家也不会感觉到厌烦。
 
-此项目大大小小共 40 多个页面，涉及注册、登陆、商品展示、购物车、下单等等，是一个完整的流程。一般公司即便是官网的单页面项目都没这么复杂，如果这个项目能驾驭的了，相信大部分公司的其他单页面应用也就不在话下，即便更复杂，也不会比这个高到哪里去。
+此项目大大小小共 50 多个页面，涉及注册、登陆、商品展示、购物车、下单等等，是一个完整的流程。一般公司即便是官网的单页面项目都没这么复杂，如果这个项目能驾驭的了，相信大部分公司的其他单页面应用也就不在话下，即便更复杂，也不会比这个高到哪里去。
 
 因为利用业余时间来做，周期有点长，从项目从零布局到现在的 35 个页面共用了 2 个多月的时间，目前项目慢慢接近尾声，同时也在进行一些优化和 bug 的解决。
 
 另外，这个项目和慕课网视频的那个饿了么没有任何关系，慕课网的项目只有一个页面，我在看完 vue 的官方文档后直接写了这个项目，没有参照任何人的代码，请大家不要混为一谈。
 
-**注：**
-** 1、此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。**
-** 2、项目已在各大论坛发表，仅供大家学习参考，请不要用于商业活动，或者私人用途，如面试、毕业设计等等，希望大家配合，谢谢。**
+##### 注：
+
+    ##### 1、此项目纯属个人瞎搞，正常下单请选择饿了么官方客户端。__
+    ##### 2、项目已在各大论坛发表，仅供大家学习参考，请不要用于商业活动，或者私人用途，如面试、毕业设计等等，希望大家配合，谢谢。__
 
 ## 技术栈
 
@@ -99,9 +100,10 @@ npm run build
 - [x] 订单详情 -- 完成
 - [x] 下载 App -- 完成
 - [x] 添加、删除、修改收货地址
-- [x] 帐户信息
+- [x] 帐户信息 -- 完成
+- [x] 服务中心 -- 完成
+- [ ] 红包
 - [ ] 上传头像，修改用户名
-- [ ] 服务中心
 - [ ] 付款(很难实现)
 
 ## 项目布局
@@ -241,16 +243,6 @@ npm run build
 
 ## 部分项目截图
 
-### 城市列表页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/home.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/home.gif" width="365" height="619"/>
-
-### 搜索地址页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/city.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/city.gif" width="365" height="619"/>
-
 ### 商铺列表页
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/>
@@ -261,38 +253,15 @@ npm run build
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
 
-### 搜索页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/search.gif" width="365" height="619"/>
-
 ### 餐馆食品列表与购物车
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shop_cart.gif" width="365" height="619"/>
 
-### 餐馆评论页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/rating.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/rating.gif" width="365" height="619"/>
-
-### 食品详情页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/fooddetail.png" width="365" height="619"/>
-
-### 餐馆信息页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shopdetail1.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/shopdetail2.png" width="365" height="619"/>
-
 ### 登陆页
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login1.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/login2.png" width="365" height="619"/>
-
-### 重置密码页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/reset.png" width="365" height="619"/>
 
 ### 个人中心
 
@@ -303,8 +272,3 @@ npm run build
 
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirm1.png" width="365" height="619"/>
 <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/confirmOrder.gif" width="365" height="619"/>
-
-### 订单列表页
-
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/order.png" width="365" height="619"/>
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/order2.png" width="365" height="619"/>
