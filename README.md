@@ -20,7 +20,7 @@ vue2 + vuex + vue-router + webpack + ES6/7 + fetch + sass + flex + svg
 
 ## 后台系统地址：
 
-### [node-elm](https://github.com/bailicangdu/node-elm)
+### [后台项目：node-elm](https://github.com/bailicangdu/node-elm)
 
 ## 项目运行
 
