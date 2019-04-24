@@ -92,7 +92,7 @@ export const getImgPath = {
         suffix = '.png'
       }
       let url = '/' + path.substr(0, 1) + '/' + path.substr(1, 2) + '/' + path.substr(3) + suffix
-      return imgBaseUrl + url
+      return 'https://fuss10.elemecdn.com' + url
     }
   }
 }

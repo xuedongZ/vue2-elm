@@ -3,7 +3,7 @@
     <head-top head-title="搜索地址" go-back='true'></head-top>
     <section>
       <div class="add-detail">
-        <input type="text" placeholder="请输入小区/写字楼/学校等" v-model="inputAdress" @input="inputThing">
+        <input type="text" placeholder="请输入小区/写字楼/学校等" v-model="inputAdress">
         <button @click="inputThing">确认</button>
       </div>
       <div class="warnpart">为了满足商家的送餐要求，建议您从列表中选择地址</div>
@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import headTop from '../../../../../../components/header/head'
-import { getImgPath } from '../../../../../../components/common/mixin'
-import { getSearchAddress } from '../../../../../../service/getData'
+import headTop from 'src/components/header/head'
+import { getImgPath } from 'src/components/common/mixin'
+import { searchNearby } from 'src/service/getData'
 import { mapMutations, mapState } from 'vuex'
 export default {
   data() {
@@ -42,17 +42,18 @@ export default {
 
   },
   mounted() {
-    getSearchAddress(this.inputAdress).then(res => {
-      this.adressList = res;
-      this.warning = true;
-      if (this.adressList.length > 0) {
-        this.warning = false;
-        if (this.inputAdress == '') {
-          this.adressList = [];
-          this.warning = true;
-        }
-      }
-    });
+
+    // getSearchAddress(this.inputAdress).then(res => {
+    // 		this.adressList=res;
+    // 		this.warning=true;
+    // 	if(this.adressList.length > 0){
+    // 		this.warning=false;
+    // 		if(this.inputAdress == ''){
+    // 			this.adressList=[];
+    // 			this.warning=true;
+    // 		}
+    // 	}
+    // });
 
   },
   mixins: [getImgPath],
@@ -69,8 +70,9 @@ export default {
     ...mapMutations([
       'SAVE_ADDDETAIL'
     ]),
+    //搜索地址
     inputThing() {
-      getSearchAddress(this.inputAdress).then(res => {
+      searchNearby(this.inputAdress).then(res => {
         this.adressList = res;
         this.warning = true;
         if (this.adressList.length > 0) {
@@ -80,9 +82,9 @@ export default {
             this.warning = true;
           }
         }
-
       });
     },
+    //选择地址
     listClick(index) {
       this.SAVE_ADDDETAIL(this.adressList[index].name);
       this.$router.go(-1);
@@ -92,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../../../../style/mixin';
+@import 'src/style/mixin';
 
 .rating_page {
   position: absolute;

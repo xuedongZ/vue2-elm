@@ -1,9 +1,9 @@
 <template>
   <div class="profile_page">
     <head-top go-back='true' :head-title="profiletitle"></head-top>
-    <section v-if="userInfo">
+    <section>
       <section class="profile-number">
-        <router-link :to="getUserinfo? '/profile/info' : '/login'" class="profile-link">
+        <router-link :to="userInfo? '/profile/info' : '/login'" class="profile-link">
           <img :src="imgpath" class="privateImage" v-if="this.avatar">
           <span class="privateImage" v-else>
             <svg class="privateImage-svg">
@@ -130,18 +130,18 @@
       </section>
     </section>
     <foot-guide></foot-guide>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-import headTop from '../../components/header/head'
-import footGuide from '../../components/footer/footGuide'
+import headTop from 'src/components/header/head'
+import footGuide from 'src/components/footer/footGuide'
 import { mapState, mapMutations } from 'vuex'
-import { imgBaseUrl } from '../../config/env'
-import { getImgPath } from '../../components/common/mixin'
+import { imgBaseUrl } from 'src/config/env'
+import { getImgPath } from 'src/components/common/mixin'
 
 export default {
   data() {
@@ -150,7 +150,7 @@ export default {
       getUserinfo: {},        //得到数据
       username: '登录/注册',           //用户名
       resetname: '',
-      mobile: '登录后享受更多特权',             //电话号码
+      mobile: '暂无绑定手机号',             //电话号码
       balance: 0,            //我的余额
       count: 0,             //优惠券个数
       pointNumber: 0,       //积分数
@@ -158,17 +158,8 @@ export default {
       imgBaseUrl,
     }
   },
-
   mounted() {
-    this.getUserinfo = this.userInfo;
-    if (this.userInfo) {
-      this.avatar = this.getUserinfo.avatar;
-      this.username = this.getUserinfo.username;
-      this.mobile = this.getUserinfo.mobile;
-      this.balance = this.getUserinfo.balance;
-      this.count = this.getUserinfo.gift_amount;
-      this.pointNumber = this.getUserinfo.point;
-    }
+
   },
   mixins: [getImgPath],
   components: {
@@ -180,6 +171,7 @@ export default {
     ...mapState([
       'userInfo',
     ]),
+    //后台会返回两种头像地址格式，分别处理
     imgpath: function () {
       let path;
       if (this.avatar.indexOf('/') !== -1) {
@@ -198,11 +190,11 @@ export default {
     ]),
   },
   watch: {
-    userInfo: function () {
-      this.getUserinfo = this.userInfo;
+    userInfo: function (value) {
+      this.getUserinfo = value || {};
       this.avatar = this.getUserinfo && this.getUserinfo.avatar || '';
       this.username = this.getUserinfo && this.getUserinfo.username || '登录/注册';
-      this.mobile = this.getUserinfo && this.getUserinfo.mobile || '登录后享受更多特权';
+      this.mobile = this.getUserinfo && this.getUserinfo.mobile || '暂无绑定手机号';
       this.balance = this.getUserinfo && this.getUserinfo.balance || '0';
       this.count = this.getUserinfo && this.getUserinfo.gift_amount || '0';
       this.pointNumber = this.getUserinfo && this.getUserinfo.point || '0';
@@ -213,7 +205,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin';
+@import 'src/style/mixin';
 
 .profile_page {
   p,
@@ -369,6 +361,7 @@ export default {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>

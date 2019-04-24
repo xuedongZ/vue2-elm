@@ -2,7 +2,7 @@
   <div class="rating_page">
     <head-top :head-title="name" go-back='true'></head-top>
     <section class="header_img">
-      <img :src="getImgPath(image_path)" class="food_img">
+      <img :src="localapi || proapi ? imgBaseUrl + image_path: getImgPath(image_path)" class="food_img">
       <div class="cover"></div>
       <p class="description">{{description}}</p>
     </section>
@@ -24,17 +24,17 @@
           <span>好评率 {{satisfy_rate}}%</span>
         </p>
       </section>
-      <buy-cart :shopId='shopId' :foods='foods' @moveInCart="$emit('moveInCart')"></buy-cart>
+      <!-- <buy-cart :shopId='shopId'  :foods='foods' @moveInCart="$emit('moveInCart')"></buy-cart> -->
     </section>
   </div>
 </template>
 
 <script>
-import headTop from '../../../components/header/head'
-import { getImgPath } from '../../../components/common/mixin'
-import ratingStar from '../../../components/common/ratingStar'
-import buyCart from '../../../components/common/buyCart'
-
+import headTop from 'src/components/header/head'
+import { getImgPath } from 'src/components/common/mixin'
+import ratingStar from 'src/components/common/ratingStar'
+import buyCart from 'src/components/common/buyCart'
+import { localapi, proapi, imgBaseUrl } from 'src/config/env'
 
 export default {
   data() {
@@ -48,6 +48,9 @@ export default {
       satisfy_rate: null,
       foods: null,
       shopId: null,
+      localapi,
+      proapi,
+      imgBaseUrl
     }
   },
   created() {
@@ -75,7 +78,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/mixin';
+@import 'src/style/mixin';
 
 .rating_page {
   position: absolute;
@@ -98,7 +101,7 @@ export default {
     display: block;
   }
   .cover {
-    box-shadow: 0px -74px 100px #ddd inset;
+    box-shadow: 0px -20px 100px #eee inset;
     position: absolute;
     @include wh(100%, 100%);
     top: 0;

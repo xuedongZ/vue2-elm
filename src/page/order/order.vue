@@ -3,7 +3,7 @@
     <head-top head-title="订单列表" go-back='true'></head-top>
     <ul class="order_list_ul" v-load-more="loaderMore">
       <li class="order_list_li" v-for="item in orderList" :key="item.id">
-        <img :src="item.restaurant_image_url" class="restaurant_image">
+        <img :src="localapi || proapi ? imgBaseUrl + item.restaurant_image_url : item.restaurant_image_url" class="restaurant_image">
         <section class="order_item_right">
           <section @click="showDetail(item)">
             <header class="order_item_right_header">
@@ -25,9 +25,10 @@
               <p class="order_amount">¥{{item.total_amount.toFixed(2)}}</p>
             </section>
           </section>
-          <router-link :to="{path: '/shop', query: {geohash, id: item.restaurant_id}}" tag="div" class="order_again">
-            <span>再来一单</span>
-          </router-link>
+          <div class="order_again">
+            <compute-time v-if="item.status_bar.title == '等待支付'" :time="localapi || proapi ?  item.time_pass :item.formatted_created_at"></compute-time>
+            <router-link :to="{path: '/shop', query: {geohash, id: item.restaurant_id}}" tag="span" class="buy_again" v-else>再来一单</router-link>
+          </div>
         </section>
       </li>
     </ul>
@@ -35,39 +36,46 @@
     <transition name="loading">
       <loading v-show="showLoading"></loading>
     </transition>
-    <transition name="router-slid">
+    <transition name="router-slid" mode="out-in">
       <router-view></router-view>
     </transition>
+
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import headTop from '../../components/header/head'
-import loading from '../../components/common/loading'
-import { getImgPath } from '../../components/common/mixin'
-import footGuide from '../../components/footer/footGuide'
-import { getOrderList } from '../../service/getData'
-import { loadMore } from '../../components/common/mixin'
+import headTop from 'src/components/header/head'
+import computeTime from 'src/components/common/computeTime'
+import loading from 'src/components/common/loading'
+import { getImgPath } from 'src/components/common/mixin'
+import footGuide from 'src/components/footer/footGuide'
+import { getOrderList } from 'src/service/getData'
+import { loadMore } from 'src/components/common/mixin'
+import { localapi, proapi, imgBaseUrl } from 'src/config/env'
+
 
 export default {
   data() {
     return {
-      orderList: null,
+      orderList: null, //订单列表
       offset: 0,
-      preventRepeat: false,
+      preventRepeat: false,  //防止重复获取
       showLoading: true, //显示加载动画
+      localapi,
+      proapi,
+      imgBaseUrl
     }
   },
   mounted() {
     this.initData();
-
   },
   mixins: [loadMore],
   components: {
     headTop,
     footGuide,
     loading,
+    computeTime,
   },
   computed: {
     ...mapState([
@@ -78,10 +86,15 @@ export default {
     ...mapMutations([
       'SAVE_ORDER'
     ]),
+    //初始化获取信息
     async initData() {
-      this.orderList = await getOrderList(111, this.offset);
-      this.hideLoading();
+      if (this.userInfo && this.userInfo.user_id) {
+        let res = await getOrderList(this.userInfo.user_id, this.offset);
+        this.orderList = [...res];
+        this.hideLoading();
+      }
     },
+    //加载更多
     async loaderMore() {
       if (this.preventRepeat) {
         return
@@ -89,32 +102,46 @@ export default {
       this.preventRepeat = true;
       this.showLoading = true;
       this.offset += 10;
-      let res = await getOrderList(111, this.offset);
-      this.orderList = this.orderList.concat(this.orderList, res);
-      this.preventRepeat = false;
+      //获取信息
+      let res = await getOrderList(this.userInfo.user_id, this.offset);
+      this.orderList = [...this.orderList, ...res];
       this.hideLoading();
+      if (res.length < 10) {
+        return
+      }
+      this.preventRepeat = false;
     },
+    //显示详情页
     showDetail(item) {
       this.SAVE_ORDER(item);
+      this.preventRepeat = false;
       this.$router.push('/order/orderDetail');
     },
+    //生产环境与发布环境隐藏loading方式不同
     hideLoading() {
       if (process.env.NODE_ENV !== 'development') {
         clearTimeout(this.timer);
         this.timer = setTimeout(() => {
           clearTimeout(this.timer);
           this.showLoading = false;
-        }, 1000)
+        }, 400)
       } else {
         this.showLoading = false;
       }
     },
+  },
+  watch: {
+    userInfo: function (value) {
+      if (value && value.user_id && !this.orderList) {
+        this.initData();
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/mixin';
+@import 'src/style/mixin';
 
 .order_page {
   background-color: #f1f1f1;
@@ -182,7 +209,7 @@ export default {
       .order_again {
         text-align: right;
         line-height: 1.6rem;
-        span {
+        .buy_again {
           @include sc(0.55rem, #3190e8);
           border: 0.025rem solid #3190e8;
           padding: 0.1rem 0.2rem;
@@ -206,6 +233,7 @@ export default {
 }
 .router-slid-enter,
 .router-slid-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(2rem, 0, 0);
+  opacity: 0;
 }
 </style>
